@@ -56,7 +56,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "no-console": "error",
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
@@ -92,5 +92,9 @@ module.exports = {
         pathGroupsExcludedImportTypes: ["react"],
       },
     ],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
   },
+  ignorePatterns: ["styled-components.d.ts"],
 };

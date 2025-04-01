@@ -1,3 +1,5 @@
+import path from "path";
+
 // @ts-ignore
 import eslint from "vite-plugin-eslint";
 import { defineConfig } from "vite";
@@ -14,4 +16,12 @@ export default defineConfig({
       failOnError: true,
     }),
   ],
+  resolve: {
+    alias: [
+      {
+        find: "@",
+        replacement: path.resolve(__dirname, "src"),
+      },
+    ],
+  },
 });
