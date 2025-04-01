@@ -13,6 +13,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier",
+    "plugin:storybook/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -55,6 +56,7 @@ module.exports = {
     "react/jsx-runtime": "off",
     "@typescript-eslint/no-explicit-any": "warn",
     "no-console": "error",
+    "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
