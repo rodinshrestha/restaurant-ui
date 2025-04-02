@@ -55,7 +55,7 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "react/jsx-runtime": "off",
     "@typescript-eslint/no-explicit-any": "warn",
-    "no-console": "error",
+    "no-console": "warn",
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
