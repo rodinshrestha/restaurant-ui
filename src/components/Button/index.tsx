@@ -1,43 +1,55 @@
-import React from "react";
+import { ButtonHTMLAttributes } from "react";
 
 import clsx from "clsx";
 
 import { StyledButton, StyledLink } from "./style";
 
-type Props = {
-  label?: string;
-  skin: "contained" | "outline";
-  rel?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  /** The visual style of the button */
+  skin?: "contained" | "outline";
+  /** The size of the button */
+  size?: "sm" | "md" | "lg";
+  /** URL to navigate to when clicked. If provided, renders as an anchor tag */
   href?: string;
-  alt?: string;
-  className?: string;
-  size?: "md" | "sm" | "lg";
+  /** Whether the button is disabled */
   disabled?: boolean;
+  /** Shows the loader for async request */
   loader?: boolean;
+  /** Id for the button */
+  id?: string;
+  /** Override button background color */
+  bgColor?: string;
+  /** Override button text color */
+  color?: string;
+  /** handle click event */
   onClick?: () => void;
-};
+  /** Custom css class name for additional styling */
+  className?: string;
+  /** Aria label */
+  label?: string;
+}
 
 const Button = ({
   label,
   skin,
   href,
   className,
-  rel,
   children,
   size,
   disabled,
   loader,
   onClick,
-}: Props) => {
+  bgColor,
+  color,
+}: ButtonProps) => {
   if (href) {
     return (
-      <StyledLink>
+      <StyledLink id="link-button" bgColor={bgColor} color={color}>
         <a
           href={href}
           className={clsx(className, skin, size)}
           aria-label={label || "link-button"}
-          rel={rel}
         >
           {children}
         </a>
@@ -50,8 +62,11 @@ const Button = ({
       className={clsx(className, skin, size, { disabled, isLoading: loader })}
       disabled={disabled}
       onClick={onClick}
+      id="button"
+      bgColor={bgColor}
+      color={color}
     >
-      {children}
+      {loader ? "Loading..." : children}
     </StyledButton>
   );
 };

@@ -1,10 +1,15 @@
 import styled, { DefaultTheme, css } from "styled-components";
 
-const defaultStyle = (theme: DefaultTheme) => css`
+type Props = {
+  theme: DefaultTheme;
+  bgColor?: string;
+  color?: string;
+};
+const defaultStyle = ({ theme, bgColor, color }: Props) => css`
   text-decoration: none;
   height: 3.5em;
   line-height: 3.5em;
-  color: ${theme.coreColor.textColor};
+  color: ${color || theme.color.white["100"]};
   display: inline-block;
   padding: 0 1.75em;
   outline: none;
@@ -16,10 +21,10 @@ const defaultStyle = (theme: DefaultTheme) => css`
   cursor: pointer;
 
   &.contained {
-    background-color: ${theme.color.orange["100"]};
+    background-color: ${bgColor || theme.color.orange["100"]};
     box-shadow: none;
-    color: ${theme.color.white["100"]};
-    border: 1px solid ${theme.color.orange["100"]};
+    color: ${color || theme.color.white["100"]};
+    border: 1px solid ${bgColor || theme.color.orange["100"]};
     height: 100%;
 
     &:hover {
@@ -29,13 +34,14 @@ const defaultStyle = (theme: DefaultTheme) => css`
 
   &.outline {
     box-shadow: none;
-    color: ${theme.coreColor.textColor};
-    border: 2px solid ${theme.coreColor.textColor};
+    color: ${color || theme.color.orange["100"]};
+    border: 2px solid ${theme.color.orange["100"]};
     height: 100%;
 
     &:hover {
-      border: 2px solid ${theme.coreColor.highlight};
-      color: ${theme.coreColor.highlight};
+      border: 2px solid ${theme.color.orange["100"]};
+      background-color: ${theme.color.orange["100"]};
+      color: ${theme.color.white["100"]};
     }
   }
 
@@ -70,17 +76,17 @@ const defaultStyle = (theme: DefaultTheme) => css`
   }
 `;
 
-export const StyledLink = styled.div`
-  ${({ theme }) => css`
+export const StyledLink = styled.div<Props>`
+  ${({ theme, bgColor, color }) => css`
     a {
-      ${defaultStyle(theme)}
+      ${defaultStyle({ theme, bgColor, color })}
     }
   `}
 `;
 
-export const StyledButton = styled.button`
-  ${({ theme }) => css`
+export const StyledButton = styled.button<Props>`
+  ${({ theme, bgColor, color }) => css`
     background-color: transparent;
-    ${defaultStyle(theme)}
+    ${defaultStyle({ theme, bgColor, color })}
   `}
 `;
