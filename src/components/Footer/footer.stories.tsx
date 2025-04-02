@@ -58,8 +58,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Default Footer
-export const Default: Story = {
-  args: {},
+export const FooterPlayground: Story = {
+  args: {
+    footerText: "Footer Playground",
+  },
 };
 
 // Custom Text
@@ -67,6 +69,7 @@ export const CustomText: Story = {
   args: {
     footerText: "© 2024 Restaurant UI. All rights reserved.",
   },
+  tags: ["!dev"], //Hide is storybook navbar
 };
 
 // Long Text
@@ -75,6 +78,7 @@ export const LongText: Story = {
     footerText:
       "This is a very long footer text that demonstrates how the component handles multiple lines of content while maintaining proper layout and spacing.",
   },
+  tags: ["!dev"], //Hide is storybook navbar
 };
 
 // With HTML Content
@@ -83,4 +87,5 @@ export const WithHTMLContent: Story = {
     footerText:
       "Contact us at support@restaurant.com | Follow us on social media",
   },
+  tags: ["!dev"], //Hide is storybook navbar
 };
