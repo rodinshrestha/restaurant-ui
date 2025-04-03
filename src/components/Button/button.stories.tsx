@@ -108,6 +108,7 @@ export const ButtonPlayground: Story = {
     skin: "contained",
     children: "Button",
   },
+  tags: ["!autodocs"],
 };
 
 /**

@@ -16,6 +16,7 @@ interface ITypography {
   children?: React.ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
+  testId?: string;
 }
 
 const Typography = ({
@@ -25,6 +26,7 @@ const Typography = ({
   onClick,
   style,
   title,
+  testId,
 }: ITypography) => {
   let Element;
   if (as === "h1") Element = H1;
@@ -49,7 +51,7 @@ const Typography = ({
       onClick={onClick}
       style={style}
       title={title || defaultContent}
-      data-testid="footer-content"
+      data-testid={testId || "footer-content"}
     >
       {children}
     </Element>

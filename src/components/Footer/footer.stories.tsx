@@ -62,6 +62,7 @@ export const FooterPlayground: Story = {
   args: {
     footerText: "Footer Playground",
   },
+  tags: ["!autodocs"],
 };
 
 // Custom Text
