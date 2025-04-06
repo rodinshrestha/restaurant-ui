@@ -19,8 +19,6 @@ export const StyledDiv = styled.div<{ $bgImage: string }>`
         color: #fff;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
-        /* align-items: center; */
         gap: 10px;
         .h1 {
           color: #fff;
@@ -33,5 +31,3 @@ export const StyledDiv = styled.div<{ $bgImage: string }>`
     }
   `}
 `;
-
-//https://ucarecdn.com/77fa410d-bf68-4302-b095-f97271021eaf/-/progressive/yes/-/format/auto/-/resize/2000x/

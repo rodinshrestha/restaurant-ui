@@ -17,6 +17,7 @@ interface ITypography {
   onClick?: () => void;
   style?: CSSProperties;
   testId?: string;
+  color?: string;
 }
 
 const Typography = ({
@@ -27,6 +28,7 @@ const Typography = ({
   style,
   title,
   testId,
+  color,
 }: ITypography) => {
   let Element;
   if (as === "h1") Element = H1;
@@ -52,6 +54,7 @@ const Typography = ({
       style={style}
       title={title || defaultContent}
       data-testid={testId || "footer-content"}
+      color={color}
     >
       {children}
     </Element>

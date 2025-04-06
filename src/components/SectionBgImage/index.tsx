@@ -10,20 +10,50 @@ type Props = {
   title: string;
   description?: string;
   as?: string;
+  enableOverlay?: boolean;
+  titleColor?: string;
+  descriptionColor?: string;
 };
 
-const SectionBgImage = ({ bgImage, title, description, as = "h1" }: Props) => {
+const SectionBgImage = ({
+  bgImage,
+  title,
+  description,
+  as = "h1",
+  enableOverlay = true,
+  titleColor,
+  descriptionColor,
+}: Props) => {
   return (
-    <StyledDiv className="section-image-wrapper" $bgImage={bgImage}>
-      <Overlay />
+    <StyledDiv
+      className="section-image-wrapper"
+      $bgImage={bgImage}
+      data-testid="section-image-test-id"
+      aria-label="section-background-image"
+    >
+      {enableOverlay && <Overlay testId="section-overlay-test-id" />}
       <Container fluid>
         <Row>
           <Col>
             <div className="menu-title-content">
-              <Typography as={as as TagType} className="section-title">
+              <Typography
+                as={as as TagType}
+                className="section-title"
+                color={titleColor}
+                testId="section-title-id"
+              >
                 {title}
               </Typography>
-              {description && <Typography as="h5">{description}</Typography>}
+              {description && (
+                <Typography
+                  as="h5"
+                  className="description-color"
+                  color={descriptionColor}
+                  testId="section-description-id"
+                >
+                  {description}
+                </Typography>
+              )}
             </div>
           </Col>
         </Row>

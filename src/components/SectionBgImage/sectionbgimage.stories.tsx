@@ -12,14 +12,15 @@ import SectionBgImage from "./index";
  * - Responsive layout that works on all screen sizes
  * - Flexible heading level(h1-h6) through 'as' prop
  * - Optional description text
- * - Built-in dark overlay to ensure text readability
+ * - Toggle overlay to ensure text readability
+ * - Override title and description color
  *
  * ## Usage
  * ```tsx
  * // Basic usage with just title
  * <SectionBgImage
  *  bgImage="https://example.com/image.jpg"
- * title="Welcome"
+ *  title="Welcome"
  * />
  *
  * // With description
@@ -90,6 +91,18 @@ const meta = {
         defaultValue: { summary: "h1" },
       },
     },
+    enableOverlay: {
+      control: "boolean",
+      description: "Enable the overlay in whole section",
+    },
+    titleColor: {
+      control: "text",
+      description: "Override the color for the title",
+    },
+    descriptionColor: {
+      control: "text",
+      description: "Override the color for the description",
+    },
   },
 } satisfies Meta<typeof SectionBgImage>;
 
@@ -119,6 +132,21 @@ export const Default: Story = {
   },
   tags: ["!dev"],
 };
+
+/**
+ * Default section with background image.
+ * Disable overlay feature
+ */
+export const WithOverlayDisbale: Story = {
+  args: {
+    bgImage:
+      "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot",
+    title: "Welcome to Our Site",
+    enableOverlay: false,
+  },
+  tags: ["!dev"],
+};
+
 /**
  * Section with description text.
  * Demonstrate how to include additonal text below the title.
@@ -133,31 +161,30 @@ export const WithDescription: Story = {
   tags: ["!dev"],
 };
 /**
- * Section with custom heading level.
- * Shows how to change the semantic heading level while maintaining visual style.
+ * Section with custom heading title color.
  */
-export const WithCustomHeading: Story = {
+export const WithCustomTitleColor: Story = {
   args: {
     bgImage:
       "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot",
     title: "About Our Company",
     as: "h2",
+    titleColor: "yellow",
   },
   tags: ["!dev"],
   name: "With Custom Heading Level",
 };
 /**
- * section with long text content.
- * Demonstrates how the component handles longer titles and descriptions.
+ * section with custom description color.
  */
-export const WithLongContent: Story = {
+export const WithCustomDescriptionColor: Story = {
   args: {
     bgImage:
       "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot",
-    title:
-      "This is Much Longer Section Title That Might Wrap to Multiple Lines",
+    title: "Our Service",
     description:
       "Here's a more detailed description that provides additional context about this section. It might span several lines depending on the viewport width.",
+    descriptionColor: "Red",
   },
   tags: ["!dev"],
 };
