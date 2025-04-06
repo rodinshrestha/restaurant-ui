@@ -28,6 +28,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   /** Aria label */
   label?: string;
+  /** Custom test id */
+  testId?: string;
 }
 
 const Button = ({
@@ -42,6 +44,7 @@ const Button = ({
   onClick,
   bgColor,
   color,
+  testId,
 }: ButtonProps) => {
   if (href) {
     return (
@@ -50,6 +53,7 @@ const Button = ({
           href={href}
           className={clsx(className, skin, size)}
           aria-label={label || "link-button"}
+          data-testid={testId}
         >
           {children}
         </a>
@@ -65,6 +69,7 @@ const Button = ({
       id="button"
       bgColor={bgColor}
       color={color}
+      data-testid={testId}
     >
       {loader ? "Loading..." : children}
     </StyledButton>

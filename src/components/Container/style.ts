@@ -6,7 +6,7 @@ import { ContainerProps } from ".";
 
 const ContainerWrapper = styled.div<ContainerProps & { $container: string }>`
   ${({ $container }) => css`
-    width: 100%;
+    width: auto;
     padding-right: 30px;
     padding-left: 30px;
     margin-right: auto;

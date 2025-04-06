@@ -26,6 +26,7 @@ interface DrawerProps {
   overlayOpacity?: number;
   overlayColor?: string;
   style?: CSSProperties;
+  drawerTestId?: string;
 }
 
 const Drawer: FC<DrawerProps> = ({
@@ -41,6 +42,7 @@ const Drawer: FC<DrawerProps> = ({
   overlayColor,
   overlayOpacity,
   style,
+  drawerTestId,
 }) => {
   React.useEffect(() => {
     if (open) {
@@ -63,7 +65,7 @@ const Drawer: FC<DrawerProps> = ({
           />
           <MotionStyledDrawer
             animate="open"
-            data-testid="drawer-wrapper"
+            data-testid={drawerTestId || "drawer-wrapper"}
             exit="closed"
             initial="closed"
             className={clsx(className, position)}
