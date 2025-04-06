@@ -1,23 +1,21 @@
-import styled, { css } from "styled-components";
-
-import { breakPoints } from "@/theme/breakPoints";
+import styled, { css, DefaultTheme } from "styled-components";
 
 import { ContainerProps } from ".";
 
 const ContainerWrapper = styled.div<ContainerProps & { $container: string }>`
-  ${({ $container }) => css`
+  ${({ theme, $container }: { theme: DefaultTheme; $container: string }) => css`
     width: auto;
     padding-right: 30px;
     padding-left: 30px;
     margin-right: auto;
     margin-left: auto;
 
-    @media (max-width: ${breakPoints.md}) {
+    @media (max-width: ${theme.breakPoints.md}) {
       padding-right: 20px;
       padding-left: 20px;
     }
 
-    @media (max-width: ${breakPoints.xl}) {
+    @media (max-width: ${theme.breakPoints.xl}) {
       padding-right: 10px;
       padding-left: 10px;
     }

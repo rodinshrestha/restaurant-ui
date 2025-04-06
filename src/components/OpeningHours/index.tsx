@@ -1,12 +1,11 @@
-import { Container } from "@/components/Container";
-import { Row } from "@/components/Row";
-import { Col } from "@/components/Col";
-import Typography from "@/components/Typography";
-import Button from "@/components/Button";
-import ImageWithFallBack from "@/components/ImageWithFallBack";
-import locationIcon from "@/assets/icons/location-pin.png";
-import phoneIcon from "@/assets/icons/phone-call.png";
-
+import { Container } from "../Container";
+import { Row } from "../Row";
+import { Col } from "../Col";
+import Typography from "../Typography";
+import Button from "../Button";
+import ImageWithFallBack from "../ImageWithFallBack";
+import locationIcon from "../../assets/icons/location-pin.png";
+import phoneIcon from "../../assets/icons/phone-call.png";
 import { StyledDiv } from "./style";
 
 type Props = {
