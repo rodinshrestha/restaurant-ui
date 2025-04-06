@@ -11,7 +11,7 @@ import Overlay from "../Overlay";
 
 export type DrawerPosition = "left" | "right" | "top" | "bottom";
 
-const MotionStyledDrawer = motion(StyledDrawer);
+const MotionStyledDrawer = motion.create(StyledDrawer);
 interface DrawerProps {
   open: boolean;
   position?: DrawerPosition;

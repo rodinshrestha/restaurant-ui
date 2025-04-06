@@ -100,7 +100,7 @@ const OpeningHours = ({
                     />
                     <a
                       href={`tel:${phone_number}`}
-                      data-testId="opening-hours-phone-link"
+                      data-testid="opening-hours-phone-link"
                     >
                       {phone_number}
                     </a>

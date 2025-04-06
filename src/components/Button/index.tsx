@@ -48,7 +48,7 @@ const Button = ({
 }: ButtonProps) => {
   if (href) {
     return (
-      <StyledLink id="link-button" bgColor={bgColor} color={color}>
+      <StyledLink id="link-button" bgcolor={bgColor} color={color}>
         <a
           href={href}
           className={clsx(className, skin, size)}
@@ -67,7 +67,7 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
       id="button"
-      bgColor={bgColor}
+      bgcolor={bgColor}
       color={color}
       data-testid={testId}
     >
