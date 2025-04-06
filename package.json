@@ -1,6 +1,6 @@
 {
   "name": "restaurant-ui",
-  "private": true,
+  "private": false,
   "version": "0.1-TEST",
   "main": "dist/index/index.js",
   "module": "dist/index/index.esm.js",
