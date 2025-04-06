@@ -1,3 +1,5 @@
+import { SectionBgImageProps } from "./SectionBgImage";
+
 export { default as Button } from "./Button";
 export { default as Header } from "./Header";
 export { default as OpeningHours } from "./OpeningHours";
@@ -7,3 +9,6 @@ export { Container } from "./Container";
 export { Row } from "./Row";
 export { Col } from "./Col";
 export { default as Typography } from "./Typography";
+
+// Export types
+export type { SectionBgImageProps };

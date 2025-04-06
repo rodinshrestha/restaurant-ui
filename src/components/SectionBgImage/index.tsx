@@ -5,7 +5,7 @@ import { Col } from "../Col";
 import Typography, { TagType } from "../Typography";
 import { StyledDiv } from "./style";
 
-type Props = {
+export interface SectionBgImageProps {
   bgImage: string;
   title: string;
   description?: string;
@@ -13,7 +13,7 @@ type Props = {
   enableOverlay?: boolean;
   titleColor?: string;
   descriptionColor?: string;
-};
+}
 
 const SectionBgImage = ({
   bgImage,
@@ -23,7 +23,7 @@ const SectionBgImage = ({
   enableOverlay = true,
   titleColor,
   descriptionColor,
-}: Props) => {
+}: SectionBgImageProps) => {
   return (
     <StyledDiv
       className="section-image-wrapper"
