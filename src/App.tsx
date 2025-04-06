@@ -1,7 +1,7 @@
 // import Button from "@/components/Button";
 
 const App = () => {
-  console.log("test");
+  console.log("tests");
   return (
     <div style={{ padding: "20px", backgroundColor: "#f0f0f0" }}>
       <h1>Hello World</h1>
