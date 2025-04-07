@@ -5,42 +5,41 @@ import { theme } from "@/theme";
 
 import Typography from "./index";
 
+/**
+ * Typography component provides consistent text styling across the application.
+It supports various HTML tags through the 'as' prop and includes responsive design.
+ *
+ * ## Features
+ * - Multiple HTML tag variants (h1-h6, p, span)
+ * - Responsive font sizes
+ * - Custom styling support
+ * - Title attribute handling
+ * - Click handler support
+ * - Nested component support
+ * 
+ * ## Props
+ * - \`as\`: HTML tag to render (required)
+ * - \`children\`: Content to display
+ * - \`className\`: Additional CSS classes
+ * - \`style\`: Inline styles
+ * - \`title\`: Custom title attribute
+ * - \`onClick\`: Click handler function
+ *
+ * ## Usage
+ * ```tsx
+ * <Typography as="h1">Heading 1</Typography>
+ * <Typography as="p">Paragraph text</Typography>
+ * <Typography as="span">Inline text</Typography>
+ * <Typography as="h1">Heading 1</Typography>
+ * <Typography as="p">Paragraph text</Typography>
+ * <Typography as="span">Inline text</Typography>
+ * ```
+ */
 const meta = {
   title: "Components/Typography",
   component: Typography,
   parameters: {
     layout: "centered",
-    docs: {
-      description: {
-        component: `
-Typography component provides consistent text styling across the application.
-It supports various HTML tags through the 'as' prop and includes responsive design.
-
-### Features
-- Multiple HTML tag variants (h1-h6, p, span)
-- Responsive font sizes
-- Custom styling support
-- Title attribute handling
-- Click handler support
-- Nested component support
-
-### Usage
-\`\`\`tsx
-<Typography as="h1">Heading 1</Typography>
-<Typography as="p">Paragraph text</Typography>
-<Typography as="span">Inline text</Typography>
-\`\`\`
-
-### Props
-- \`as\`: HTML tag to render (required)
-- \`children\`: Content to display
-- \`className\`: Additional CSS classes
-- \`style\`: Inline styles
-- \`title\`: Custom title attribute
-- \`onClick\`: Click handler function
-`,
-      },
-    },
   },
   decorators: [
     (Story) => (

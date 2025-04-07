@@ -2,18 +2,26 @@ import clsx from "clsx";
 
 import StyledDiv from "./style";
 
-interface IProps {
+export interface OverlayProps {
   className?: string;
   position?: string;
   color?: string /* hex color only */;
   opacity?: number;
   zIndex?: number;
+  testId?: string;
 }
 
-const Overlay = ({ className, color, opacity, zIndex, position }: IProps) => (
+const Overlay = ({
+  className,
+  color,
+  opacity,
+  zIndex,
+  position,
+  testId,
+}: OverlayProps) => (
   <StyledDiv
     id="overlay"
-    data-testid="overlay"
+    data-testid={testId || "overlay"}
     className={clsx("bg-overlay", className)}
     $color={color}
     $zIndex={zIndex}

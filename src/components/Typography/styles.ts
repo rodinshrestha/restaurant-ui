@@ -8,7 +8,12 @@ import styled, { DefaultTheme, css } from "styled-components";
 // h5 Bootstrap heading (1.25rem = 20px)
 // h6 Bootstrap heading (1rem = 16px)
 
-const style = (theme: DefaultTheme) => css`
+type StyleProps = {
+  theme: DefaultTheme;
+  color?: string;
+};
+
+const style = ({ theme, color }: StyleProps) => css`
   &.h1,
   &.h2,
   &.h3,
@@ -93,7 +98,7 @@ const style = (theme: DefaultTheme) => css`
   }
 
   &.section-title {
-    color: ${theme.color.black["100"]};
+    color: ${color || theme.color.black["100"]};
     font-size: 56px;
     font-family: inherit;
     position: relative;
@@ -108,6 +113,10 @@ const style = (theme: DefaultTheme) => css`
     }
   }
 
+  &.description-color {
+    color: ${color};
+  }
+
   &.section-title-helper {
     margin-top: 40px;
 
@@ -118,33 +127,33 @@ const style = (theme: DefaultTheme) => css`
 `;
 
 export const H1 = styled.h1`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const H2 = styled.h2`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const H3 = styled.h3`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const H4 = styled.h4`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const H5 = styled.h5`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const H6 = styled.h6`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const Paragraph = styled.p`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;
 
 export const Span = styled.span`
-  ${({ theme }) => style(theme)}
+  ${({ theme, color }: StyleProps) => style({ theme, color })}
 `;

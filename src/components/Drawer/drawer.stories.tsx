@@ -183,6 +183,7 @@ export const DrawerPlayground: Story = {
     ),
     onClose: () => {},
   },
+  tags: ["!autodocs"],
 };
 
 /**

@@ -9,13 +9,15 @@ export type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type TagType = HeadingType | "p" | "span" | "subtitle1" | "subtitle2";
 
-interface ITypography {
+export interface TypographyProps {
   as: TagType;
   className?: string;
   title?: string;
   children?: React.ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
+  testId?: string;
+  color?: string;
 }
 
 const Typography = ({
@@ -25,7 +27,9 @@ const Typography = ({
   onClick,
   style,
   title,
-}: ITypography) => {
+  testId,
+  color,
+}: TypographyProps) => {
   let Element;
   if (as === "h1") Element = H1;
   else if (as === "h2") Element = H2;
@@ -49,7 +53,8 @@ const Typography = ({
       onClick={onClick}
       style={style}
       title={title || defaultContent}
-      data-testid="footer-content"
+      data-testid={testId || "footer-content"}
+      color={color}
     >
       {children}
     </Element>

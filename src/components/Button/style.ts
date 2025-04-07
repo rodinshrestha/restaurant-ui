@@ -2,10 +2,10 @@ import styled, { DefaultTheme, css } from "styled-components";
 
 type Props = {
   theme: DefaultTheme;
-  bgColor?: string;
+  bgcolor?: string;
   color?: string;
 };
-const defaultStyle = ({ theme, bgColor, color }: Props) => css`
+const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
   text-decoration: none;
   height: 3.5em;
   line-height: 3.5em;
@@ -21,10 +21,10 @@ const defaultStyle = ({ theme, bgColor, color }: Props) => css`
   cursor: pointer;
 
   &.contained {
-    background-color: ${bgColor || theme.color.orange["100"]};
+    background-color: ${bgcolor || theme.color.orange["100"]};
     box-shadow: none;
     color: ${color || theme.color.white["100"]};
-    border: 1px solid ${bgColor || theme.color.orange["100"]};
+    border: 1px solid ${bgcolor || theme.color.orange["100"]};
     height: 100%;
 
     &:hover {
@@ -77,16 +77,16 @@ const defaultStyle = ({ theme, bgColor, color }: Props) => css`
 `;
 
 export const StyledLink = styled.div<Props>`
-  ${({ theme, bgColor, color }) => css`
+  ${({ theme, bgcolor, color }) => css`
     a {
-      ${defaultStyle({ theme, bgColor, color })}
+      ${defaultStyle({ theme, bgcolor, color })}
     }
   `}
 `;
 
 export const StyledButton = styled.button<Props>`
-  ${({ theme, bgColor, color }) => css`
+  ${({ theme, bgcolor, color }) => css`
     background-color: transparent;
-    ${defaultStyle({ theme, bgColor, color })}
+    ${defaultStyle({ theme, bgcolor, color })}
   `}
 `;

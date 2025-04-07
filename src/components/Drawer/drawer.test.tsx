@@ -5,7 +5,7 @@ import { render } from "@/utils/render";
 
 import Drawer from "./index";
 
-describe.only("Drawer Component", () => {
+describe("Drawer Component", () => {
   const mockOnClose = vi.fn();
   const defaultProps = {
     open: true,
@@ -28,7 +28,7 @@ describe.only("Drawer Component", () => {
     expect(screen.queryByTestId("drawer-content")).not.toBeInTheDocument();
   });
 
-  it.only("calls onClose when clicking the overlay", () => {
+  it("calls onClose when clicking the overlay", () => {
     render(<Drawer {...defaultProps} />);
     const overlay = screen.getByTestId("overlay-wrapper");
     fireEvent.click(overlay);

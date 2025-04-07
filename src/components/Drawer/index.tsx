@@ -1,4 +1,3 @@
-"use client";
 import React, { FC } from "react";
 
 import clsx from "clsx";
@@ -11,8 +10,8 @@ import Overlay from "../Overlay";
 
 export type DrawerPosition = "left" | "right" | "top" | "bottom";
 
-const MotionStyledDrawer = motion(StyledDrawer);
-interface DrawerProps {
+const MotionStyledDrawer = motion.create(StyledDrawer);
+export interface DrawerProps {
   open: boolean;
   position?: DrawerPosition;
   size?: "fullscreen" | "auto";
@@ -26,6 +25,7 @@ interface DrawerProps {
   overlayOpacity?: number;
   overlayColor?: string;
   style?: CSSProperties;
+  drawerTestId?: string;
 }
 
 const Drawer: FC<DrawerProps> = ({
@@ -41,6 +41,7 @@ const Drawer: FC<DrawerProps> = ({
   overlayColor,
   overlayOpacity,
   style,
+  drawerTestId,
 }) => {
   React.useEffect(() => {
     if (open) {
@@ -63,7 +64,7 @@ const Drawer: FC<DrawerProps> = ({
           />
           <MotionStyledDrawer
             animate="open"
-            data-testid="drawer-wrapper"
+            data-testid={drawerTestId || "drawer-wrapper"}
             exit="closed"
             initial="closed"
             className={clsx(className, position)}
