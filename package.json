@@ -2,15 +2,10 @@
   "name": "restaurant-ui",
   "private": false,
   "version": "0.3.0-TEST",
-  "main": "dist/index/index.js",
-  "module": "dist/index/index.esm.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/components/index.js",
+  "module": "dist/components/index.esm.js",
+  "types": "dist/types/components.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index/index.esm.js",
-      "require": "./dist/index/index.js"
-    },
     "./components": {
       "types": "./dist/types/components.d.ts",
       "import": "./dist/components/index.esm.js",
@@ -30,7 +25,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rollup -c",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
     "clean": "rimraf dist",
     "lint": "eslint .",
     "preview": "vite preview",

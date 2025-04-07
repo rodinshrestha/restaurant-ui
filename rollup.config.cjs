@@ -7,21 +7,18 @@ const image = require("@rollup/plugin-image");
 
 const config = [
   {
-    input: {
-      index: "src/index.ts",
-      components: "src/components/index.ts",
-    },
+    input: "src/components/index.ts",
     output: [
       {
         dir: "dist",
         format: "cjs",
-        entryFileNames: "[name]/index.js",
+        entryFileNames: "components/index.js",
         sourcemap: true,
       },
       {
         dir: "dist",
         format: "esm",
-        entryFileNames: "[name]/index.esm.js",
+        entryFileNames: "components/index.esm.js",
         sourcemap: true,
       },
     ],
@@ -38,6 +35,8 @@ const config = [
       typescript({
         tsconfig: "./tsconfig.json",
         exclude: ["**/__tests__", "**/*.test.tsx"],
+        declaration: true,
+        declarationDir: "dist/types",
       }),
     ],
     external: ["react", "react-dom", "styled-components"],
