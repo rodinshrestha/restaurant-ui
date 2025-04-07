@@ -15,7 +15,7 @@ import Drawer from "../Drawer";
 import { NavLinkType } from "./types/header.types";
 import HeaderMenu from "./components/HeaderMenu";
 
-type Props = {
+export type HeaderProps = {
   navLink: NavLinkType;
   logo?: string;
   shouldLogoFloat?: boolean;
@@ -27,7 +27,7 @@ const Header = ({
   navLink,
   shouldLogoFloat = false,
   isLogoRounded = false,
-}: Props) => {
+}: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isHeaderSticky, setIsHeaderSticky] = React.useState(false);
 

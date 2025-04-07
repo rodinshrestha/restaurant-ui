@@ -8,7 +8,7 @@ import locationIcon from "../../assets/icons/location-pin.png";
 import phoneIcon from "../../assets/icons/phone-call.png";
 import { StyledDiv } from "./style";
 
-type Props = {
+export type OppeningHoursProps = {
   lunch_time: string;
   open_information: string;
   dinner_time: string;
@@ -24,7 +24,7 @@ const OpeningHours = ({
   order_online_url,
   address,
   phone_number,
-}: Props) => {
+}: OppeningHoursProps) => {
   return (
     <StyledDiv>
       <Container>

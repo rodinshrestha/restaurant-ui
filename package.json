@@ -1,18 +1,18 @@
 {
   "name": "restaurant-ui",
   "private": false,
-  "version": "0.2-TEST",
+  "version": "0.3.0-TEST",
   "main": "dist/index/index.js",
   "module": "dist/index/index.esm.js",
-  "types": "dist/index/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/index/index.esm.js",
       "require": "./dist/index/index.js"
     },
     "./components": {
-      "types": "./dist/components/index.d.ts",
+      "types": "./dist/types/components.d.ts",
       "import": "./dist/components/index.esm.js",
       "require": "./dist/components/index.js"
     }

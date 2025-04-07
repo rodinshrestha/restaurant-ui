@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import StyledDiv from "./style";
 
-interface IProps {
+export interface OverlayProps {
   className?: string;
   position?: string;
   color?: string /* hex color only */;
@@ -18,7 +18,7 @@ const Overlay = ({
   zIndex,
   position,
   testId,
-}: IProps) => (
+}: OverlayProps) => (
   <StyledDiv
     id="overlay"
     data-testid={testId || "overlay"}

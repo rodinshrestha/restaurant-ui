@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { StyledButton, StyledLink } from "./style";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   /** The visual style of the button */
   skin?: "contained" | "outline";

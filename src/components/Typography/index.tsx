@@ -9,7 +9,7 @@ export type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type TagType = HeadingType | "p" | "span" | "subtitle1" | "subtitle2";
 
-interface ITypography {
+export interface TypographyProps {
   as: TagType;
   className?: string;
   title?: string;
@@ -29,7 +29,7 @@ const Typography = ({
   title,
   testId,
   color,
-}: ITypography) => {
+}: TypographyProps) => {
   let Element;
   if (as === "h1") Element = H1;
   else if (as === "h2") Element = H2;

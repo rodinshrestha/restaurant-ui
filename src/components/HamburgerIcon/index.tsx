@@ -2,13 +2,17 @@ import clsx from "clsx";
 
 import { StyledDiv } from "./style";
 
-type Props = {
+export type HamBurgerMenuIconProps = {
   isMenuOpen: boolean;
   onClick: () => void;
   testId?: string;
 };
 
-const HamburgerMenuIcon = ({ isMenuOpen, onClick, testId }: Props) => {
+const HamburgerMenuIcon = ({
+  isMenuOpen,
+  onClick,
+  testId,
+}: HamBurgerMenuIconProps) => {
   return (
     <StyledDiv
       className={clsx("hamburgerMenu action", {

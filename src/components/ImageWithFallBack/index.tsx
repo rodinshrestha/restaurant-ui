@@ -2,7 +2,7 @@ import React from "react";
 
 import fallbackImage from "@/assets/image/fallback-image.png";
 
-type Props = {
+export type ImageWithFallBackProps = {
   src: string;
   alt: string;
   className?: string;
@@ -18,7 +18,7 @@ const ImageWithFallBack = ({
   width,
   height,
   testId,
-}: Props) => {
+}: ImageWithFallBackProps) => {
   const [imgSrc, setImgSrc] = React.useState(src);
 
   return (
