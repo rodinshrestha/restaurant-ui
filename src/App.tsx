@@ -1,11 +1,10 @@
-// import Button from "@/components/Button";
+import React from "react";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div style={{ padding: "20px", backgroundColor: "#f0f0f0" }}>
       <h1>Hello World</h1>
       <p>This is a test content</p>
-      {/* <Button skin="contained">Test</Button> */}
     </div>
   );
 };

@@ -6,6 +6,11 @@
   "module": "dist/components/index.esm.js",
   "types": "dist/types/components.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/types/components.d.ts",
+      "import": "./dist/components/index.esm.js",
+      "require": "./dist/components/index.js"
+    },
     "./components": {
       "types": "./dist/types/components.d.ts",
       "import": "./dist/components/index.esm.js",
@@ -15,6 +20,13 @@
   "files": [
     "dist"
   ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/types/components.d.ts"
+      ]
+    }
+  },
   "author": "Rodin Shrestha <rodinshrestha@gmail.com>",
   "description": "This is ui component package for resturant website",
   "license": "MIT",
@@ -47,6 +59,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-essentials": "^8.6.11",
     "@storybook/addon-onboarding": "^8.6.11",

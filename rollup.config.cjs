@@ -4,6 +4,8 @@ const commonjs = require("@rollup/plugin-commonjs");
 const peerDepsExternal = require("rollup-plugin-peer-deps-external");
 const alias = require("@rollup/plugin-alias");
 const image = require("@rollup/plugin-image");
+const replace = require("@rollup/plugin-replace");
+const path = require("path");
 
 const config = [
   {
@@ -24,8 +26,17 @@ const config = [
     ],
     plugins: [
       peerDepsExternal(),
+      replace({
+        preventAssignment: true,
+        "use client": "",
+      }),
       alias({
-        entries: [{ find: "@", replacement: "./src" }],
+        entries: [
+          {
+            find: "@",
+            replacement: path.resolve(__dirname, "src"),
+          },
+        ],
       }),
       nodeResolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -37,9 +48,19 @@ const config = [
         exclude: ["**/__tests__", "**/*.test.tsx"],
         declaration: true,
         declarationDir: "dist/types",
+        compilerOptions: {
+          allowSyntheticDefaultImports: true,
+          esModuleInterop: true,
+          moduleResolution: "node",
+          target: "es2018",
+          module: "esnext",
+          jsx: "react-jsx",
+          outDir: "dist",
+          baseUrl: ".",
+        },
       }),
     ],
-    external: ["react", "react-dom", "styled-components"],
+    external: ["react", "react-dom", "styled-components", "framer-motion"],
   },
 ];
 
