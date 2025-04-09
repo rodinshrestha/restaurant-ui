@@ -20,25 +20,46 @@ export const color = {
   orange: {
     100: "#ff8a33",
   },
+  ...{
+    bg: "#fff",
+    bgAlt: "#2a2f4a",
+    textColor: "#5E4933",
+    textSecondaryColor: "#5e4933",
+    fg: "#ffffff",
+    fgBold: "#ffffff",
+    fgLight: "rgba(244,244,255,0.2)",
+    border: "rgba(212,212,255,0.1)",
+    borderBg: "rgba(212,212,255,0.035)",
+    highlight: "#f5a43b",
+    accent1: "#6fc3df",
+    accent2: "#8d82c4",
+    accent3: "#ec8d81",
+    accent4: "#e7b788",
+    accent5: "#8ea9e8",
+    accent6: "#87c5a4",
+  },
 };
 
-// export const defaultPalette = {
-//   bg: "#fff",
-//   bgAlt: "#2a2f4a",
-//   textColor: "#5E4933",
-//   textSecondaryColor: "#5e4933",
-//   fg: "#ffffff",
-//   fgBold: "#ffffff",
-//   fgLight: "rgba(244,244,255,0.2)",
-//   border: "rgba(212,212,255,0.1)",
-//   borderBg: "rgba(212,212,255,0.035)",
-//   highlight: "#f5a43b",
-//   accent1: "#6fc3df",
-//   accent2: "#8d82c4",
-//   accent3: "#ec8d81",
-//   accent4: "#e7b788",
-//   accent5: "#8ea9e8",
-//   accent6: "#87c5a4",
-// };
+export const defaultPalette = {
+  bg: "#fff",
+  bgAlt: "#2a2f4a",
+  textColor: "#5E4933",
+  textSecondaryColor: "#5e4933",
+  fg: "#ffffff",
+  fgBold: "#ffffff",
+  fgLight: "rgba(244,244,255,0.2)",
+  border: "rgba(212,212,255,0.1)",
+  borderBg: "rgba(212,212,255,0.035)",
+  highlight: "#f5a43b",
+  accent1: "#6fc3df",
+  accent2: "#8d82c4",
+  accent3: "#ec8d81",
+  accent4: "#e7b788",
+  accent5: "#8ea9e8",
+  accent6: "#87c5a4",
+};
 
-// export const coreColor = () => defaultPalette;
+export const Color = () => ({
+  ...color,
+  ...defaultPalette,
+});
