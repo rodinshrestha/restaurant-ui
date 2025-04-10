@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import Button from "./index";
 
@@ -56,7 +55,7 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),
@@ -196,7 +195,7 @@ export const AsLink: Story = {
 export const CustomColor: Story = {
   args: {
     skin: "contained",
-    bgColor: theme.color.cyan[100],
+    bgColor: "green",
     children: "Custom Color Button",
     size: "lg",
   },

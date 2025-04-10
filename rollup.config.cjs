@@ -9,18 +9,18 @@ const path = require("path");
 
 const config = [
   {
-    input: "src/components/index.ts",
+    input: ["src/components/index.ts", "src/theme/index.ts"],
     output: [
       {
         dir: "dist",
         format: "cjs",
-        entryFileNames: "components/index.js",
+        entryFileNames: "[name]/index.js",
         sourcemap: true,
       },
       {
         dir: "dist",
         format: "esm",
-        entryFileNames: "components/index.esm.js",
+        entryFileNames: "[name]/index.esm.js",
         sourcemap: true,
       },
     ],
@@ -45,6 +45,9 @@ const config = [
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json",
+        exclude: ["**/__tests__", "**/*.test.tsx"],
+        declaration: true,
+        declarationDir: "dist/types",
       }),
     ],
     external: ["react", "react-dom", "styled-components", "framer-motion"],
