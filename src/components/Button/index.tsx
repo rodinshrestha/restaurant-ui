@@ -2,6 +2,9 @@ import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 import clsx from "clsx";
 
+import { withTheme } from "@/utils/withTheme";
+import { theme as defaultTheme } from "@/theme";
+
 import { StyledButton, StyledLink } from "./style";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,12 +33,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   /** Custom test id */
   testId?: string;
+  /** Theme object */
+  theme?: typeof defaultTheme;
 }
 
 type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   bgcolor?: string;
   color?: string;
   "data-testid"?: string;
+  theme?: typeof defaultTheme;
 };
 
 const Button = ({
@@ -51,6 +57,7 @@ const Button = ({
   bgColor,
   color,
   testId,
+  theme = defaultTheme,
   ...props
 }: ButtonProps) => {
   const buttonClasses = clsx(skin, size, className, {
@@ -66,6 +73,7 @@ const Button = ({
       color,
       "data-testid": testId,
       "aria-label": label,
+      theme,
       ...(props as AnchorHTMLAttributes<HTMLAnchorElement>),
     };
     return <StyledLink {...linkProps}>{children}</StyledLink>;
@@ -80,6 +88,7 @@ const Button = ({
       color={color}
       data-testid={testId}
       aria-label={label}
+      theme={theme}
       {...props}
     >
       {loader ? "Loading..." : children}
@@ -87,4 +96,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default withTheme(Button);
