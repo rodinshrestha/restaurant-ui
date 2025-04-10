@@ -9,7 +9,10 @@ const path = require("path");
 
 const config = [
   {
-    input: ["src/components/index.ts", "src/theme/index.ts"],
+    input: {
+      components: "src/components/index.ts",
+      providers: "src/providers/index.ts",
+    },
     output: [
       {
         dir: "dist",

@@ -10,6 +10,11 @@
       "types": "./dist/types/components/index.d.ts",
       "import": "./dist/components/index.esm.js",
       "require": "./dist/components/index.js"
+    },
+    "./providers": {
+      "types": "./dist/types/providers/index.d.ts",
+      "import": "./dist/providers/index.esm.js",
+      "require": "./dist/providers/index.js"
     }
   },
   "files": [
@@ -19,6 +24,9 @@
     "*": {
       "components": [
         "./dist/types/components/index.d.ts"
+      ],
+      "providers": [
+        "./dist/types/providers/index.d.ts"
       ]
     }
   },
