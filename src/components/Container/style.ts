@@ -1,5 +1,7 @@
 import styled, { css, DefaultTheme } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 import { ContainerProps } from ".";
 
 const ContainerWrapper = styled.div<ContainerProps & { $container: string }>`
@@ -10,12 +12,12 @@ const ContainerWrapper = styled.div<ContainerProps & { $container: string }>`
     margin-right: auto;
     margin-left: auto;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       padding-right: 20px;
       padding-left: 20px;
     }
 
-    @media (max-width: ${theme.breakPoints.xl}) {
+    ${mediaQuery("xl")} {
       padding-right: 10px;
       padding-left: 10px;
     }

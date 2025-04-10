@@ -1,6 +1,8 @@
 import { rem } from "polished";
 import styled, { css } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 interface Props {
   $size: "fullscreen" | "auto";
   $top: number;
@@ -37,27 +39,27 @@ export const StyledDrawer = styled.div<Props>`
     }
 
     .drawer-wrap {
-      @media (max-width: ${theme.breakPoints.sm}) {
+      ${mediaQuery("sm")} {
         width: 100%;
         max-width: 100%;
       }
     }
 
     &.nav-drawer {
-      @media (max-width: ${theme.breakPoints.md}) {
+      ${mediaQuery("md")} {
         max-height: calc(100% - 100px);
       }
 
-      @media (max-width: ${theme.breakPoints.sm}) {
+      ${mediaQuery("sm")} {
         top: 48px;
       }
 
-      @media (max-width: ${theme.breakPoints.sm}) {
+      ${mediaQuery("sm")} {
         max-height: calc(100% - 70px);
       }
 
       .drawer-wrap {
-        @media (max-width: ${theme.breakPoints.md}) {
+        ${mediaQuery("md")} {
           width: calc(100% - 20px);
           max-width: 100%;
           margin-left: ${rem(10)};
@@ -86,7 +88,7 @@ export const StyledDrawer = styled.div<Props>`
     &.cart-drawer,
     &.choose-size {
       .drawer-wrap {
-        @media (max-width: ${theme.breakPoints.md}) {
+        ${mediaQuery("md")} {
           width: 90%;
           max-width: 90%;
         }

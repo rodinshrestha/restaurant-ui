@@ -1,5 +1,7 @@
 import styled, { css, DefaultTheme } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 interface ButtonStyleProps {
   bgcolor?: string;
   color?: string;
@@ -56,7 +58,7 @@ const defaultStyle = css<ButtonStyleProps>`
     width: 300px;
     font-size: 18px;
 
-    @media (max-width: ${({ theme }) => theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       width: 220px;
       font-size: 14px;
     }
@@ -66,7 +68,7 @@ const defaultStyle = css<ButtonStyleProps>`
     width: 450px;
     font-size: 20px;
 
-    @media (max-width: ${({ theme }) => theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       width: 320px;
       font-size: 16px;
     }

@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 export const StyledUl = styled.ul`
   ${({ theme }) => css`
     &.menu-list-wrapper {
@@ -18,7 +20,7 @@ export const StyledUl = styled.ul`
       list-style: none;
       z-index: 999999;
 
-      @media (max-width: ${theme.breakPoints.md}) {
+      ${mediaQuery("md")} {
         height: calc(100% - 60px);
       }
 
@@ -67,7 +69,7 @@ export const StyledUl = styled.ul`
             }
           }
 
-          @media (max-width: ${theme.breakPoints.md}) {
+          ${mediaQuery("md")} {
             font-size: 18px;
           }
         }

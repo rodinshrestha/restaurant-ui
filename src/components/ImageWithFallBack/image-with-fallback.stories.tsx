@@ -136,7 +136,9 @@ export const Default: Story = {
   tags: ["!dev"],
 };
 
-// Fallback Story
+/**
+ * When the image fails to load, the fallback image will be displayed.
+ */
 export const WithFallback: Story = {
   args: {
     src: "https://invalid-image-url.com/image.jpg", // This will trigger the fallback

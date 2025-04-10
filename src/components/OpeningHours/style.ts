@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import bgImage from "@/assets/image/fade-mountain.svg";
+import { mediaQuery } from "@/theme/utils";
 
 export const StyledDiv = styled.div`
   ${({ theme }) => css`
@@ -17,7 +18,7 @@ export const StyledDiv = styled.div`
       .oppening-hour-info {
         text-transform: uppercase;
         text-align: center;
-        @media (max-width: ${theme.breakPoints.md}) {
+        ${mediaQuery("md")} {
           display: flex;
           flex-direction: column;
           gap: 5px;

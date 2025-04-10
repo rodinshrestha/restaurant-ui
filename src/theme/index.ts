@@ -1,9 +1,9 @@
-import { breakPoints } from "./breakPoints";
+import { breakpoints } from "./breakPoints";
 import { color } from "./color";
 import { font } from "./font";
 
 export const theme = {
-  breakPoints,
+  breakpoints,
   color,
   font,
 } as const;

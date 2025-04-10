@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
 
+import { mediaQuery } from "./utils";
+
 export const GlobalStyles = createGlobalStyle`
 ${({ theme }) => css`
   * {
@@ -92,7 +94,7 @@ ${({ theme }) => css`
     font-size: 30px;
     display: inline-flex;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       font-size: 24px;
     }
   }

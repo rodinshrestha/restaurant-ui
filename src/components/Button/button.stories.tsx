@@ -198,6 +198,7 @@ export const CustomColor: Story = {
     skin: "contained",
     bgColor: theme.color.cyan[100],
     children: "Custom Color Button",
+    size: "lg",
   },
   tags: ["!dev"], //Hide is storybook navbar
 };
