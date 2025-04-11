@@ -20,10 +20,12 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": ["src/*"],
+      "content/*": ["content/*"]
+    },
+    "types": ["node"]
   },
-  "include": ["src"],
+  "include": ["src", "types", "content"],
   "exclude": [
     "node_modules",
     "dist",

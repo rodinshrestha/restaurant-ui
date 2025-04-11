@@ -1,8 +1,9 @@
+import React from "react";
+
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
-
+import { theme } from "../../theme";
 import Button from "./index";
 
 /**
