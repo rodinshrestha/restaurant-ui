@@ -1,12 +1,38 @@
-export { default as Button } from "./Button";
-export { default as Header } from "./Header";
-export { default as OpeningHours } from "./OpeningHours";
-export { default as SectionBgImage } from "./SectionBgImage";
-export { default as Overlay } from "./Overlay";
-export { Container } from "./Container";
-export { Row } from "./Row";
-export { Col } from "./Col";
-export { default as Typography } from "./Typography";
+import { withTheme } from "@/hooks/withTheme";
+
+// Components without theme provider
+import RawButton from "./Button";
+import RawHeader from "./Header";
+import RawOpeningHours from "./OpeningHours";
+import RawSectionBgImage from "./SectionBgImage";
+import RawOverlay from "./Overlay";
+import RawContainer from "./Container";
+import RawRow from "./Row";
+import RawCol from "./Col";
+import RawTypography from "./Typography";
+
+// Injecting theme provider in the components
+const Button = withTheme(RawButton);
+const Header = withTheme(RawHeader);
+const OppeningHours = withTheme(RawOpeningHours);
+const SectionBgImage = withTheme(RawSectionBgImage);
+const Overlay = withTheme(RawOverlay);
+const Container = withTheme(RawContainer);
+const Row = withTheme(RawRow);
+const Col = withTheme(RawCol);
+const Typography = withTheme(RawTypography);
+
+export {
+  Button,
+  Header,
+  OppeningHours,
+  SectionBgImage,
+  Overlay,
+  Container,
+  Row,
+  Col,
+  Typography,
+};
 
 // Export types
 export type { SectionBgImageProps } from "./SectionBgImage";

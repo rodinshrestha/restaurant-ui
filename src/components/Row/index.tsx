@@ -14,7 +14,7 @@ export type RowProps = {
   id?: string;
 };
 
-export const Row = ({
+const Row = ({
   noGutter = false,
   children,
   className,
@@ -32,3 +32,5 @@ export const Row = ({
     </RowWrapper>
   );
 };
+
+export default Row;

@@ -1,7 +1,5 @@
 import React from "react";
 
-import { withTheme } from "./utils/withTheme";
-
 const App: React.FC = () => {
   return (
     <div style={{ padding: "20px", backgroundColor: "#f0f0f0" }}>
@@ -11,4 +9,4 @@ const App: React.FC = () => {
   );
 };
 
-export default withTheme(App);
+export default App;

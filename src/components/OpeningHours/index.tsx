@@ -1,6 +1,6 @@
-import { Container } from "../Container";
-import { Row } from "../Row";
-import { Col } from "../Col";
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import Typography from "../Typography";
 import Button from "../Button";
 import ImageWithFallBack from "../ImageWithFallBack";
