@@ -9,21 +9,27 @@ import phoneIcon from "../../assets/icons/phone-call.png";
 import { StyledDiv } from "./style";
 
 export type OppeningHoursProps = {
-  lunch_time: string;
-  open_information: string;
-  dinner_time: string;
-  order_online_url: string;
+  lunchTime: string;
+  openInformation: string;
+  dinnerTime: string;
+  orderOnlineUrl: string;
   address: string;
-  phone_number: string;
+  phoneNumber: string;
+  lastTableSeated: string;
+  orderBtnLabel?: string;
+  hoursTitle?: string;
 };
 
 const OpeningHours = ({
-  lunch_time,
-  open_information,
-  dinner_time,
-  order_online_url,
+  lunchTime,
+  openInformation,
+  dinnerTime,
+  lastTableSeated,
+  orderOnlineUrl,
   address,
-  phone_number,
+  phoneNumber,
+  orderBtnLabel = "ORDER ONLINE",
+  hoursTitle = "Hours:",
 }: OppeningHoursProps) => {
   return (
     <StyledDiv>
@@ -32,44 +38,44 @@ const OpeningHours = ({
           <Col>
             <div className="oppening-hours-wrapper" data-testid="opening-hours">
               <Typography as="h4" testId="opening-hours-text">
-                Hours:
+                {hoursTitle}
               </Typography>
 
               <div className="oppening-hour-info">
-                {lunch_time && (
+                {lunchTime && (
                   <Typography
                     as="subtitle1"
                     testId="opening-hours-lunch-time-text"
                   >
-                    {lunch_time}
+                    {lunchTime}
                   </Typography>
                 )}
-                <Typography as="subtitle1">
-                  Last tables Seated at 8:00PM
-                </Typography>
-                {open_information && (
+                {lastTableSeated && (
+                  <Typography as="subtitle1">{lastTableSeated}</Typography>
+                )}
+                {openInformation && (
                   <Typography as="subtitle1" testId="opening-hour-information">
-                    {open_information}
+                    {openInformation}
                   </Typography>
                 )}
-                {dinner_time && (
+                {dinnerTime && (
                   <Typography
                     as="subtitle1"
                     testId="opening-hour-dinner-time-text"
                   >
-                    {dinner_time}
+                    {dinnerTime}
                   </Typography>
                 )}
               </div>
 
               <div className="order-wrapper">
-                {order_online_url && (
+                {orderOnlineUrl && (
                   <Button
                     skin="contained"
-                    href={order_online_url}
+                    href={orderOnlineUrl}
                     testId="opening-hour-order-btn"
                   >
-                    ORDER ONLINE
+                    {orderBtnLabel}
                   </Button>
                 )}
                 {address && (
@@ -90,7 +96,7 @@ const OpeningHours = ({
                   </div>
                 )}
 
-                {phone_number && (
+                {phoneNumber && (
                   <div className="location-wrapper">
                     <ImageWithFallBack
                       src={phoneIcon}
@@ -98,10 +104,10 @@ const OpeningHours = ({
                       testId="opening-hours-phone-icon"
                     />
                     <a
-                      href={`tel:${phone_number}`}
+                      href={`tel:${phoneNumber}`}
                       data-testid="opening-hours-phone-link"
                     >
-                      {phone_number}
+                      {phoneNumber}
                     </a>
                   </div>
                 )}

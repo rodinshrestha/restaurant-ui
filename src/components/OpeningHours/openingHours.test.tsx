@@ -7,12 +7,15 @@ import OpeningHours from "./index";
 
 describe("OpeningHours Component", () => {
   const mockProps = {
-    lunch_time: "Lunch: 11:00 AM - 3:00 PM",
-    open_information: "Open for dine-in and takeout",
-    dinner_time: "Dinner: 5:00 PM - 10:00 PM",
-    order_online_url: "https://example.com/order",
+    lunchTime: "Lunch: 11:00 AM - 3:00 PM",
+    openInformation: "Open for dine-in and takeout",
+    dinnerTime: "Dinner: 5:00 PM - 10:00 PM",
+    orderOnlineUrl: "https://example.com/order",
     address: "123 Restaurant St, City, Country",
-    phone_number: "+1 234 567 8900",
+    phoneNumber: "+1 234 567 8900",
+    lastTableSeated: "Last table seated at 9:30 PM",
+    orderBtnLabel: "ORDER ONLINE",
+    hoursTitle: "Hours:",
   };
 
   describe("Rendering", () => {
@@ -46,7 +49,7 @@ describe("OpeningHours Component", () => {
       render(<OpeningHours {...mockProps} />);
       const orderButton = screen.getByTestId("opening-hour-order-btn");
       expect(orderButton).toBeInTheDocument();
-      expect(orderButton).toHaveAttribute("href", mockProps.order_online_url);
+      expect(orderButton).toHaveAttribute("href", mockProps.orderOnlineUrl);
     });
 
     it("renders address with location icon", () => {
@@ -66,10 +69,7 @@ describe("OpeningHours Component", () => {
       render(<OpeningHours {...mockProps} />);
       const phoneLink = screen.getByTestId("opening-hours-phone-link");
       expect(phoneLink).toBeInTheDocument();
-      expect(phoneLink).toHaveAttribute(
-        "href",
-        `tel:${mockProps.phone_number}`,
-      );
+      expect(phoneLink).toHaveAttribute("href", `tel:${mockProps.phoneNumber}`);
       expect(
         screen.getByTestId("opening-hours-phone-icon"),
       ).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe("OpeningHours Component", () => {
 
   describe("Conditional Rendering", () => {
     it("does not render lunch time when not provided", () => {
-      const propsWithoutLunch = { ...mockProps, lunch_time: "" };
+      const propsWithoutLunch = { ...mockProps, lunchTime: "" };
       render(<OpeningHours {...propsWithoutLunch} />);
       expect(
         screen.queryByTestId("opening-hours-lunch-time-text"),
@@ -86,7 +86,7 @@ describe("OpeningHours Component", () => {
     });
 
     it("does not render dinner time when not provided", () => {
-      const propsWithoutDinner = { ...mockProps, dinner_time: "" };
+      const propsWithoutDinner = { ...mockProps, dinnerTime: "" };
       render(<OpeningHours {...propsWithoutDinner} />);
       expect(
         screen.queryByTestId("opening-hour-dinner-time-text"),
@@ -94,7 +94,7 @@ describe("OpeningHours Component", () => {
     });
 
     it("does not render open information when not provided", () => {
-      const propsWithoutInfo = { ...mockProps, open_information: "" };
+      const propsWithoutInfo = { ...mockProps, openInformation: "" };
       render(<OpeningHours {...propsWithoutInfo} />);
       expect(
         screen.queryByTestId("opening-hour-information"),
@@ -102,7 +102,7 @@ describe("OpeningHours Component", () => {
     });
 
     it("does not render order online button when URL not provided", () => {
-      const propsWithoutOrder = { ...mockProps, order_online_url: "" };
+      const propsWithoutOrder = { ...mockProps, orderOnlineUrl: "" };
       render(<OpeningHours {...propsWithoutOrder} />);
       expect(
         screen.queryByTestId("opening-hour-order-btn"),
@@ -118,7 +118,7 @@ describe("OpeningHours Component", () => {
     });
 
     it("does not render phone number when not provided", () => {
-      const propsWithoutPhone = { ...mockProps, phone_number: "" };
+      const propsWithoutPhone = { ...mockProps, phoneNumber: "" };
       render(<OpeningHours {...propsWithoutPhone} />);
       expect(
         screen.queryByTestId("opening-hours-phone-icon"),

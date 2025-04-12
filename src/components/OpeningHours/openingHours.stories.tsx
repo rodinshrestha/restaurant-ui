@@ -11,20 +11,24 @@ import OpeningHours from "./index";
  * Features include:
  * - Lunch and dinner time display
  * - Last seating time information
- * - Order online button
+ * - Order online button with customizable label
  * - Location with Google Maps link
  * - Phone number with click-to-call
+ * - Customizable hours title
  * - Responsive design
  *
  * @example
  * ```tsx
  * <OpeningHours
- *   lunch_time="Lunch: 11:00 AM - 3:00 PM"
- *   dinner_time="Dinner: 5:00 PM - 10:00 PM"
- *   open_information="Open for dine-in and takeout"
- *   order_online_url="https://example.com/order"
+ *   lunchTime="11:00 AM - 3:00 PM"
+ *   dinnerTime="5:00 PM - 10:00 PM"
+ *   openInformation="Open for dine-in and takeout"
+ *   lastTableSeated="Last table seated at 9:30 PM"
+ *   orderOnlineUrl="https://example.com/order"
  *   address="123 Restaurant St"
- *   phone_number="+1 234 567 8900"
+ *   phoneNumber="+1 234 567 8900"
+ *   orderBtnLabel="ORDER ONLINE"
+ *   hoursTitle="Hours:"
  * />
  * ```
  */
@@ -35,19 +39,23 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    lunch_time: {
+    lunchTime: {
       control: "text",
       description: "Lunch service hours",
     },
-    dinner_time: {
+    dinnerTime: {
       control: "text",
       description: "Dinner service hours",
     },
-    open_information: {
+    openInformation: {
       control: "text",
       description: "Additional opening information",
     },
-    order_online_url: {
+    lastTableSeated: {
+      control: "text",
+      description: "Last table seating time information",
+    },
+    orderOnlineUrl: {
       control: "text",
       description: "URL for online ordering",
     },
@@ -55,9 +63,17 @@ const meta = {
       control: "text",
       description: "Restaurant address",
     },
-    phone_number: {
+    phoneNumber: {
       control: "text",
       description: "Contact phone number",
+    },
+    orderBtnLabel: {
+      control: "text",
+      description: "Custom label for the order button",
+    },
+    hoursTitle: {
+      control: "text",
+      description: "Custom title for the hours section",
     },
   },
   decorators: [
@@ -74,12 +90,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultProps = {
-  lunch_time: "Lunch: 11:00 AM - 3:00 PM",
-  dinner_time: "Dinner: 5:00 PM - 10:00 PM",
-  open_information: "Open for dine-in and takeout",
-  order_online_url: "https://example.com/order",
+  lunchTime: "11:00 AM - 3:00 PM",
+  dinnerTime: "5:00 PM - 10:00 PM",
+  openInformation: "Open for dine-in and takeout",
+  lastTableSeated: "Last table seated at 9:30 PM",
+  orderOnlineUrl: "https://example.com/order",
   address: "123 Restaurant St, City, Country",
-  phone_number: "+1 234 567 8900",
+  phoneNumber: "+1 234 567 8900",
+  orderBtnLabel: "ORDER ONLINE",
+  hoursTitle: "Hours:",
 };
 
 /**
@@ -96,5 +115,33 @@ export const OpeningHoursPlayground: Story = {
  */
 export const Default: Story = {
   args: defaultProps,
+  tags: ["!dev"],
+};
+
+/**
+ * OpeningHours with custom button label and hours title
+ */
+export const CustomLabels: Story = {
+  args: {
+    ...defaultProps,
+    orderBtnLabel: "RESERVE A TABLE",
+    hoursTitle: "Our Operating Hours:",
+  },
+  tags: ["!dev"],
+};
+
+/**
+ * OpeningHours with minimal information
+ */
+export const Minimal: Story = {
+  args: {
+    lunchTime: "11:00 AM - 3:00 PM",
+    dinnerTime: "5:00 PM - 10:00 PM",
+    openInformation: "Open for dine-in",
+    lastTableSeated: "Last table seated at 9:30 PM",
+    orderOnlineUrl: "https://example.com/order",
+    address: "123 Restaurant St",
+    phoneNumber: "+1 234 567 8900",
+  },
   tags: ["!dev"],
 };
