@@ -114,7 +114,7 @@ export const StyledDiv = styled.div`
           display: flex;
           gap: 20px;
           font-size: 18px;
-          ${mediaQuery("lg")} {
+          ${mediaQuery("md")} {
             display: none;
           }
 

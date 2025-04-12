@@ -10,6 +10,8 @@ import RawContainer from "./Container";
 import RawRow from "./Row";
 import RawCol from "./Col";
 import RawTypography from "./Typography";
+import Link from "./Link";
+import RawFooter from "./Footer";
 
 // Injecting theme provider in the components
 const Button = withTheme(RawButton);
@@ -21,6 +23,7 @@ const Container = withTheme(RawContainer);
 const Row = withTheme(RawRow);
 const Col = withTheme(RawCol);
 const Typography = withTheme(RawTypography);
+const Footer = withTheme(RawFooter);
 
 export {
   Button,
@@ -32,6 +35,8 @@ export {
   Row,
   Col,
   Typography,
+  Link,
+  Footer,
 };
 
 // Export types
@@ -48,3 +53,4 @@ export type { OppeningHoursProps } from "./OpeningHours";
 export type { OverlayProps } from "./Overlay";
 export type { RowProps } from "./Row";
 export type { TypographyProps } from "./Typography";
+export type { LinkProps } from "./Link";

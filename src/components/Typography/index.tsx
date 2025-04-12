@@ -13,7 +13,7 @@ export interface TypographyProps {
   as: TagType;
   className?: string;
   title?: string;
-  children?: React.ReactNode;
+  children?: React.ReactElement | React.ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
   testId?: string;
@@ -60,5 +60,4 @@ const Typography = ({
     </Element>
   );
 };
-
 export default Typography;

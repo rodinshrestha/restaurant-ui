@@ -1,15 +1,9 @@
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
-import { theme as defaultTheme } from "@/theme";
+import { theme } from "@/theme";
 import { GlobalStyles } from "@/theme/GlobalStyles";
 
-export const ThemeProvider = ({
-  children,
-  theme = defaultTheme,
-}: {
-  children: React.ReactNode;
-  theme?: typeof defaultTheme;
-}) => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <StyledThemeProvider theme={theme}>
       <GlobalStyles />

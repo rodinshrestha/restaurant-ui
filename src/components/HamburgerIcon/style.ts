@@ -11,7 +11,7 @@ export const StyledDiv = styled.div`
       width: 18px;
       display: none;
 
-      ${mediaQuery("lg")} {
+      ${mediaQuery("md")} {
         display: block;
       }
 
