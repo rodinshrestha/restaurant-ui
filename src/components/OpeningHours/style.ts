@@ -8,6 +8,7 @@ export const StyledDiv = styled.div`
     padding: 60px 0;
     background: url(${bgImage}) no-repeat 50% fixed;
     background-size: cover;
+    width: 100%;
 
     .oppening-hours-wrapper {
       display: flex;

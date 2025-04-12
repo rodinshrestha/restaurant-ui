@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { mediaQuery } from "@/theme/utils";
+import { maxMediaQuery } from "@/theme/utils";
 
 export const StyledDiv = styled.div`
   ${({ theme }) => css`
@@ -11,7 +11,7 @@ export const StyledDiv = styled.div`
       width: 18px;
       display: none;
 
-      ${mediaQuery("md")} {
+      ${maxMediaQuery("md")} {
         display: block;
       }
 
