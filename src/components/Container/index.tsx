@@ -26,9 +26,7 @@ const Container = ({
     <ContainerWrapper
       className={clsx(className, {
         "container-fluid": fluid,
-        container: !fluid,
       })}
-      $container={fluid ? "fluid" : "normal"}
       id={id}
       style={style}
     >

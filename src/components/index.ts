@@ -12,6 +12,7 @@ import RawCol from "./Col";
 import RawTypography from "./Typography";
 import Link from "./Link";
 import RawFooter from "./Footer";
+import RawOutStory from "./OurStory";
 
 // Injecting theme provider in the components
 const Button = withTheme(RawButton);
@@ -24,6 +25,7 @@ const Row = withTheme(RawRow);
 const Col = withTheme(RawCol);
 const Typography = withTheme(RawTypography);
 const Footer = withTheme(RawFooter);
+const OurStory = withTheme(RawOutStory);
 
 export {
   Button,
@@ -37,6 +39,7 @@ export {
   Typography,
   Link,
   Footer,
+  OurStory,
 };
 
 // Export types
@@ -54,3 +57,4 @@ export type { OverlayProps } from "./Overlay";
 export type { RowProps } from "./Row";
 export type { TypographyProps } from "./Typography";
 export type { LinkProps } from "./Link";
+export type { OurStoryProps } from "./OurStory";

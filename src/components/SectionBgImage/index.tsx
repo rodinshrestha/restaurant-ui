@@ -32,7 +32,7 @@ const SectionBgImage = ({
       aria-label="section-background-image"
     >
       {enableOverlay && <Overlay testId="section-overlay-test-id" />}
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
             <div className="menu-title-content">

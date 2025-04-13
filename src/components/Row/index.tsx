@@ -23,8 +23,7 @@ const Row = ({
 }: RowProps) => {
   return (
     <RowWrapper
-      $noGutter={noGutter}
-      className={clsx("row", className, { noGutter: "no-gutters" })}
+      className={clsx("row", className, { "no-gutter": !!noGutter })}
       style={style}
       id={id}
     >

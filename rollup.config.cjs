@@ -6,6 +6,7 @@ const alias = require("@rollup/plugin-alias");
 const image = require("@rollup/plugin-image");
 const replace = require("@rollup/plugin-replace");
 const path = require("path");
+const json = require("@rollup/plugin-json");
 
 const config = [
   {
@@ -42,8 +43,9 @@ const config = [
         ],
       }),
       nodeResolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
       }),
+      json(),
       image(),
       commonjs(),
       typescript({

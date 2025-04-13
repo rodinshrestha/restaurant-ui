@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import ReactHtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 
 import { StyledSection } from "./style";
 import Container from "../Container";
@@ -8,10 +8,10 @@ import Row from "../Row";
 import Col from "../Col";
 import Typography from "../Typography";
 
-type OurStoryProps = {
-  storyTitle?: string;
+export type OurStoryProps = {
+  storyTitle: string;
   storySubTitle?: string;
-  storyDescription?: string;
+  storyDescription: string;
   containerFluid?: boolean;
 };
 
@@ -19,7 +19,7 @@ const OurStory = ({
   storyTitle,
   storyDescription,
   storySubTitle,
-  containerFluid = true,
+  containerFluid = false,
 }: OurStoryProps) => {
   const isContentNull = !storyTitle && !storyDescription && !storySubTitle;
 
@@ -65,7 +65,7 @@ const OurStory = ({
 
               {formattedStoryContent && (
                 <Typography as="p" testId="our-story-description">
-                  {ReactHtmlParser(formattedStoryContent) as ReactNode}
+                  {parse(formattedStoryContent) as ReactNode}
                 </Typography>
               )}
             </div>

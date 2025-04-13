@@ -84,7 +84,6 @@ export const Default: Story = {
     storySubTitle: "Discover Our Journey",
     storyDescription:
       "Welcome to our restaurant, where passion meets culinary excellence. Our journey began in 2010 with a simple dream: to create memorable dining experiences.\n\nOver the years, we've grown from a small family-owned establishment to a beloved destination for food enthusiasts. Our commitment to quality ingredients and innovative cooking techniques remains unchanged.\n\nToday, we continue to write our story, one delicious dish at a time.",
-    containerFluid: true,
   },
 };
 

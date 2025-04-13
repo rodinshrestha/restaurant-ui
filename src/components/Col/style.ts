@@ -20,14 +20,13 @@ export const getWidthString = (span: number) => {
 
 const ColWrapper = styled.div<ColProps & StyledProps>`
   ${({ $xs, $sm, $md, $lg, $xl, $xxl, $xxxl }) => css`
-    flex-basis: 1;
-    flex-grow: 1;
     position: relative;
     width: 100%;
+    padding-left: 16px; /* gutter spacing */
+    padding-right: 16px;
+    flex-grow: 1;
+    flex-basis: 0;
     max-width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 100%;
 
     ${$xs &&
     `@media only screen and (min-width: 361px) {
