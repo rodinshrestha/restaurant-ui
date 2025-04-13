@@ -1,3 +1,5 @@
+import defaultBgImage from "@/assets/image/fade-mountain.png";
+
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
@@ -7,6 +9,7 @@ import ImageWithFallBack from "../ImageWithFallBack";
 import locationIcon from "../../assets/icons/location-pin.png";
 import phoneIcon from "../../assets/icons/phone-call.png";
 import { StyledDiv } from "./style";
+import Overlay from "../Overlay";
 
 export type OppeningHoursProps = {
   lunchTime: string;
@@ -18,6 +21,8 @@ export type OppeningHoursProps = {
   lastTableSeated: string;
   orderBtnLabel?: string;
   hoursTitle?: string;
+  bgImage?: string;
+  enbaleOverlay?: boolean;
 };
 
 const OpeningHours = ({
@@ -30,10 +35,16 @@ const OpeningHours = ({
   phoneNumber,
   orderBtnLabel = "ORDER ONLINE",
   hoursTitle = "Hours:",
+  bgImage,
+  enbaleOverlay = false,
 }: OppeningHoursProps) => {
   return (
-    <StyledDiv>
-      <Container>
+    <StyledDiv
+      bgImage={bgImage || defaultBgImage}
+      data-testid="opening-hours-wrapper-id"
+    >
+      {enbaleOverlay && <Overlay testId="opening-hours-overlay-id" />}
+      <Container style={{ zIndex: 10 }}>
         <Row>
           <Col>
             <div className="oppening-hours-wrapper" data-testid="opening-hours">

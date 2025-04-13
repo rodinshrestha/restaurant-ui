@@ -74,6 +74,22 @@ describe("OpeningHours Component", () => {
         screen.getByTestId("opening-hours-phone-icon"),
       ).toBeInTheDocument();
     });
+
+    it("uses custom background image when provided", () => {
+      const customBgImage =
+        "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot";
+      render(<OpeningHours {...mockProps} bgImage={customBgImage} />);
+      const container = screen.getByTestId("opening-hours-wrapper-id");
+      expect(container).toHaveStyle({
+        backgroundImage: `url(${customBgImage})`,
+      });
+    });
+
+    it("Enable the overlay", () => {
+      render(<OpeningHours {...mockProps} enbaleOverlay />);
+      const overlayContainer = screen.getByTestId("opening-hours-overlay-id");
+      expect(overlayContainer).toBeInTheDocument();
+    });
   });
 
   describe("Conditional Rendering", () => {
