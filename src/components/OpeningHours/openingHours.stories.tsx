@@ -8,15 +8,13 @@ import OpeningHours from "./index";
  * OpeningHours Component
  *
  * A component that displays restaurant operating hours, contact information, and ordering options.
- * ## Features include:
+ * Features include:
  * - Lunch and dinner time display
  * - Last seating time information
  * - Order online button with customizable label
  * - Location with Google Maps link
  * - Phone number with click-to-call
  * - Customizable hours title
- * - Customizable background image
- * - Overlay feature
  * - Responsive design
  *
  * @example
@@ -31,8 +29,6 @@ import OpeningHours from "./index";
  *   phoneNumber="+1 234 567 8900"
  *   orderBtnLabel="ORDER ONLINE"
  *   hoursTitle="Hours:"
- *   bgImage="path/to/custom-background.jpg"
- *   enableOverlay="true"
  * />
  * ```
  */
@@ -78,15 +74,6 @@ const meta = {
     hoursTitle: {
       control: "text",
       description: "Custom title for the hours section",
-    },
-    bgImage: {
-      control: "text",
-      description: "Custom background image path",
-    },
-    enbaleOverlay: {
-      control: "boolean",
-      description:
-        "Enable the overlay for background image. Helps to ready the text properly",
     },
   },
   decorators: [
@@ -139,31 +126,6 @@ export const CustomLabels: Story = {
     ...defaultProps,
     orderBtnLabel: "RESERVE A TABLE",
     hoursTitle: "Our Operating Hours:",
-  },
-  tags: ["!dev"],
-};
-
-/**
- * OpeningHours with custom background image
- */
-export const CustomBackground: Story = {
-  args: {
-    ...defaultProps,
-    bgImage:
-      "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot",
-  },
-  tags: ["!dev"],
-};
-
-/**
- * OpeningHours with custom background image with overlay
- */
-export const CustomBackgroundWithOverlay: Story = {
-  args: {
-    ...defaultProps,
-    enbaleOverlay: true,
-    bgImage:
-      "https://ucarecdn.com/1f18f5f0-443f-4211-86f3-7b1ad2f55bcf/-/progressive/yes/-/format/auto/-/resize/2000x/&quot",
   },
   tags: ["!dev"],
 };
