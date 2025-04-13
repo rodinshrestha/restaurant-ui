@@ -186,18 +186,3 @@ export const AsLink: Story = {
   },
   tags: ["!dev"], //Hide is storybook navbar
 };
-
-/**
- * Button with custom background color and text color.
- * Demonstrates how to use the bgColor prop to customize the button's appearance.
- * For contained buttons, this affects both background and border color.
- */
-export const CustomColor: Story = {
-  args: {
-    skin: "contained",
-    bgColor: "green",
-    children: "Custom Color Button",
-    size: "lg",
-  },
-  tags: ["!dev"], //Hide is storybook navbar
-};
