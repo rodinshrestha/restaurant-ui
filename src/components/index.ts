@@ -13,6 +13,7 @@ import RawTypography from "./Typography";
 import Link from "./Link";
 import RawFooter from "./Footer";
 import RawOutStory from "./OurStory";
+import RawImageGallery from "./ImageGallery";
 
 // Injecting theme provider in the components
 const Button = withTheme(RawButton);
@@ -26,6 +27,7 @@ const Col = withTheme(RawCol);
 const Typography = withTheme(RawTypography);
 const Footer = withTheme(RawFooter);
 const OurStory = withTheme(RawOutStory);
+const ImageGallery = withTheme(RawImageGallery);
 
 export {
   Button,
@@ -40,6 +42,7 @@ export {
   Link,
   Footer,
   OurStory,
+  ImageGallery,
 };
 
 // Export types
@@ -58,3 +61,4 @@ export type { RowProps } from "./Row";
 export type { TypographyProps } from "./Typography";
 export type { LinkProps } from "./Link";
 export type { OurStoryProps } from "./OurStory";
+export type { ImageGalleryProps } from "./ImageGallery";

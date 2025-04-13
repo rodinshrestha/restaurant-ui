@@ -9,9 +9,9 @@ import Col from "../Col";
 import Typography from "../Typography";
 
 export type OurStoryProps = {
-  storyTitle: string;
+  storyTitle?: string;
   storySubTitle?: string;
-  storyDescription: string;
+  storyDescription?: string;
   containerFluid?: boolean;
 };
 

@@ -7,6 +7,7 @@ const image = require("@rollup/plugin-image");
 const replace = require("@rollup/plugin-replace");
 const path = require("path");
 const json = require("@rollup/plugin-json");
+const css = require("rollup-plugin-css-only");
 
 const config = [
   {
@@ -43,11 +44,12 @@ const config = [
         ],
       }),
       nodeResolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css"],
       }),
       json(),
       image(),
       commonjs(),
+      css({ output: "dist/styles.css" }),
       typescript({
         tsconfig: "./tsconfig.json",
         exclude: ["**/__tests__", "**/*.test.tsx"],
