@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { InputTextAreaStyle, StyledDiv } from "./style";
 
-type Props = {
+export type InputTextAreaProps = {
   id: string;
   name: string;
   rows: number;
@@ -32,7 +32,7 @@ const InputTextArea = ({
   cols,
   errorMsg,
   ...props
-}: Props) => {
+}: InputTextAreaProps) => {
   const isError = error && touched;
 
   return (

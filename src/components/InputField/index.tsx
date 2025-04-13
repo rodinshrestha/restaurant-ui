@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { InputStyle, StyledDiv } from "./style";
 
-type Props = {
+export type InputFieldProps = {
   name: string;
   placeholder: string;
   value: string;
@@ -26,7 +26,7 @@ const InputField = ({
   name,
   errorMsg,
   ...props
-}: Props) => {
+}: InputFieldProps) => {
   const isError = error && touched;
 
   return (
