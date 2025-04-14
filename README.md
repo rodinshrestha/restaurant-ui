@@ -65,7 +65,7 @@ yarn add restaurant-ui
 ### Basic Setup
 
 ```tsx
-import { Button, Container, Row, Col } from "restaurant-ui";
+import { Button, Container, Row, Col } from "restaurant-ui/components";
 
 function App() {
   return (
