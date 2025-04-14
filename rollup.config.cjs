@@ -60,5 +60,4 @@ const config = [
     external: ["react", "react-dom", "styled-components", "framer-motion"],
   },
 ];
-
 module.exports = config;

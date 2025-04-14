@@ -14,7 +14,7 @@ import Link from "./Link";
 import RawFooter from "./Footer";
 import RawOutStory from "./OurStory";
 import RawImageGallery from "./ImageGallery";
-// import RawContactForm from "./ContactForm";
+import RawContactForm from "./ContactForm";
 import RawMap from "./Map";
 import RawInputField from "./InputField";
 import RawInputTextArea from "./InputTextArea";
@@ -32,7 +32,7 @@ const Typography = withTheme(RawTypography);
 const Footer = withTheme(RawFooter);
 const OurStory = withTheme(RawOutStory);
 const ImageGallery = withTheme(RawImageGallery);
-// const ContactForm = withTheme(RawContactForm);
+const ContactForm = withTheme(RawContactForm);
 const Map = withTheme(RawMap);
 const InputField = withTheme(RawInputField);
 const InputTextArea = withTheme(RawInputTextArea);
@@ -51,7 +51,7 @@ export {
   Footer,
   OurStory,
   ImageGallery,
-  // ContactForm,
+  ContactForm,
   Map,
   InputField,
   InputTextArea,
