@@ -45,4 +45,4 @@ const Col = ({
   );
 };
 
-export default Col;
+export default React.memo(Col);
