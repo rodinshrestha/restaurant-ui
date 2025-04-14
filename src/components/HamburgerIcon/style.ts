@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { maxMediaQuery } from "@/theme/utils";
+
 export const StyledDiv = styled.div`
   ${({ theme }) => css`
     &.hamburgerMenu {
@@ -9,7 +11,7 @@ export const StyledDiv = styled.div`
       width: 18px;
       display: none;
 
-      @media (max-width: ${theme.breakPoints.Lg}) {
+      ${maxMediaQuery("md")} {
         display: block;
       }
 

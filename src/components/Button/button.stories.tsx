@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers";
 
 import Button from "./index";
 
@@ -56,7 +55,7 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),
@@ -184,20 +183,6 @@ export const AsLink: Story = {
     skin: "contained",
     href: "https://example.com",
     children: "Link Button",
-  },
-  tags: ["!dev"], //Hide is storybook navbar
-};
-
-/**
- * Button with custom background color and text color.
- * Demonstrates how to use the bgColor prop to customize the button's appearance.
- * For contained buttons, this affects both background and border color.
- */
-export const CustomColor: Story = {
-  args: {
-    skin: "contained",
-    bgColor: theme.color.cyan[100],
-    children: "Custom Color Button",
   },
   tags: ["!dev"], //Hide is storybook navbar
 };

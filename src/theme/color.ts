@@ -1,4 +1,6 @@
 export const color = {
+  primary: "#0070f3",
+  secondary: "#6c75",
   yellow: {
     100: `rgb(248, 159, 0)`,
   },

@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import Typography from "./index";
 
 /**
- * Typography component provides consistent text styling across the application.
-It supports various HTML tags through the 'as' prop and includes responsive design.
+ * Typography component provides consistent text styling across the application. It supports various HTML tags through the 'as' prop and includes responsive design.
  *
  * ## Features
  * - Multiple HTML tag variants (h1-h6, p, span)
@@ -16,7 +14,7 @@ It supports various HTML tags through the 'as' prop and includes responsive desi
  * - Title attribute handling
  * - Click handler support
  * - Nested component support
- * 
+ *
  * ## Props
  * - \`as\`: HTML tag to render (required)
  * - \`children\`: Content to display
@@ -43,7 +41,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),

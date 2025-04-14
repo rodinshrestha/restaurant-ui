@@ -14,7 +14,7 @@ export type RowProps = {
   id?: string;
 };
 
-export const Row = ({
+const Row = ({
   noGutter = false,
   children,
   className,
@@ -23,8 +23,7 @@ export const Row = ({
 }: RowProps) => {
   return (
     <RowWrapper
-      $noGutter={noGutter}
-      className={clsx("row", className, { noGutter: "no-gutters" })}
+      className={clsx("row", className, { "no-gutter": !!noGutter })}
       style={style}
       id={id}
     >
@@ -32,3 +31,5 @@ export const Row = ({
     </RowWrapper>
   );
 };
+
+export default Row;

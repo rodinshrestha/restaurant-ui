@@ -151,7 +151,7 @@ describe("Header Component", () => {
 
     it("has clickable logo link", () => {
       render(<Header {...defaultProps} />);
-      const logoLink = screen.getByRole("link", { name: /logo/i });
+      const logoLink = screen.getByTestId("header-logo-wrapper");
       expect(logoLink).toHaveAttribute("href", "/");
     });
   });

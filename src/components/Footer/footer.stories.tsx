@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import Footer from "./index";
 
@@ -46,7 +45,7 @@ The footer component uses styled-components and follows the theme's styling guid
   },
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),

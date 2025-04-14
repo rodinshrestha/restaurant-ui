@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 export const StyledDiv = styled.div`
   ${({ theme }) => css`
     position: relative;
@@ -32,7 +34,7 @@ export const StyledDiv = styled.div`
       justify-content: space-between;
       height: 90px;
 
-      @media (max-width: ${theme.breakPoints.md}) {
+      ${mediaQuery("md")} {
         height: 60px;
       }
 
@@ -55,7 +57,7 @@ export const StyledDiv = styled.div`
           border-radius: 50%;
         }
 
-        @media (max-width: ${theme.breakPoints.md}) {
+        ${mediaQuery("md")} {
           width: 100px;
           height: 100px;
         }
@@ -96,7 +98,7 @@ export const StyledDiv = styled.div`
             }
           }
 
-          @media (max-width: ${theme.breakPoints.md}) {
+          ${mediaQuery("md")} {
             font-size: 12px;
           }
         }
@@ -112,7 +114,7 @@ export const StyledDiv = styled.div`
           display: flex;
           gap: 20px;
           font-size: 18px;
-          @media (max-width: ${theme.breakPoints.Lg}) {
+          @media (max-width: ${theme.breakpoints.lg}) {
             display: none;
           }
 
@@ -174,7 +176,7 @@ export const StyledDiv = styled.div`
             opacity: 0.8;
           }
 
-          @media (max-width: ${theme.breakPoints.md}) {
+          ${mediaQuery("md")} {
             display: none;
           }
         }

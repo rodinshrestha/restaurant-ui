@@ -1,19 +1,22 @@
-import styled, { DefaultTheme, css } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
-type Props = {
-  theme: DefaultTheme;
+import { mediaQuery } from "@/theme/utils";
+
+interface ButtonStyleProps {
   bgcolor?: string;
   color?: string;
-};
-const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
+  theme: DefaultTheme;
+}
+
+const defaultStyle = css<ButtonStyleProps>`
   text-decoration: none;
   height: 3.5em;
   line-height: 3.5em;
-  color: ${color || theme.color.white["100"]};
+  color: ${({ color, theme }) => color || theme.color.white["100"]};
   display: inline-block;
   padding: 0 1.75em;
   outline: none;
-  font-family: ${theme.font.defaultSystemTheme};
+  font-family: ${({ theme }) => theme.font.defaultSystemTheme};
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   text-align: center;
@@ -21,10 +24,12 @@ const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
   cursor: pointer;
 
   &.contained {
-    background-color: ${bgcolor || theme.color.orange["100"]};
+    background-color: ${({ bgcolor, theme }) =>
+      bgcolor || theme.color.orange["100"]};
     box-shadow: none;
-    color: ${color || theme.color.white["100"]};
-    border: 1px solid ${bgcolor || theme.color.orange["100"]};
+    color: ${({ color, theme }) => color || theme.color.white["100"]};
+    border: 1px solid
+      ${({ bgcolor, theme }) => bgcolor || theme.color.orange["100"]};
     height: 100%;
 
     &:hover {
@@ -34,14 +39,14 @@ const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
 
   &.outline {
     box-shadow: none;
-    color: ${color || theme.color.orange["100"]};
-    border: 2px solid ${theme.color.orange["100"]};
+    color: ${({ color, theme }) => color || theme.color.orange["100"]};
+    border: 2px solid ${({ theme }) => theme.color.orange["100"]};
     height: 100%;
 
     &:hover {
-      border: 2px solid ${theme.color.orange["100"]};
-      background-color: ${theme.color.orange["100"]};
-      color: ${theme.color.white["100"]};
+      border: 2px solid ${({ theme }) => theme.color.orange["100"]};
+      background-color: ${({ theme }) => theme.color.orange["100"]};
+      color: ${({ theme }) => theme.color.white["100"]};
     }
   }
 
@@ -53,7 +58,7 @@ const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
     width: 300px;
     font-size: 18px;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       width: 220px;
       font-size: 14px;
     }
@@ -63,7 +68,7 @@ const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
     width: 450px;
     font-size: 20px;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       width: 320px;
       font-size: 16px;
     }
@@ -76,17 +81,10 @@ const defaultStyle = ({ theme, bgcolor, color }: Props) => css`
   }
 `;
 
-export const StyledLink = styled.div<Props>`
-  ${({ theme, bgcolor, color }) => css`
-    a {
-      ${defaultStyle({ theme, bgcolor, color })}
-    }
-  `}
+export const StyledButton = styled.button<ButtonStyleProps>`
+  ${defaultStyle}
 `;
 
-export const StyledButton = styled.button<Props>`
-  ${({ theme, bgcolor, color }) => css`
-    background-color: transparent;
-    ${defaultStyle({ theme, bgcolor, color })}
-  `}
+export const StyledLink = styled.a<ButtonStyleProps>`
+  ${defaultStyle}
 `;

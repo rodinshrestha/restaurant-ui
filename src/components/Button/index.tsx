@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 import clsx from "clsx";
 
@@ -32,44 +32,55 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   testId?: string;
 }
 
+type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  bgcolor?: string;
+  color?: string;
+  "data-testid"?: string;
+};
+
 const Button = ({
   label,
-  skin,
+  skin = "contained",
   href,
   className,
   children,
-  size,
+  size = "md",
   disabled,
   loader,
   onClick,
   bgColor,
   color,
   testId,
+  ...props
 }: ButtonProps) => {
+  const buttonClasses = clsx(skin, size, className, {
+    disabled,
+    isLoading: loader,
+  });
+
   if (href) {
-    return (
-      <StyledLink id="link-button" bgcolor={bgColor} color={color}>
-        <a
-          href={href}
-          className={clsx(className, skin, size)}
-          aria-label={label || "link-button"}
-          data-testid={testId}
-        >
-          {children}
-        </a>
-      </StyledLink>
-    );
+    const linkProps: LinkProps = {
+      href,
+      className: buttonClasses,
+      bgcolor: bgColor,
+      color,
+      "data-testid": testId,
+      "aria-label": label,
+      ...(props as AnchorHTMLAttributes<HTMLAnchorElement>),
+    };
+    return <StyledLink {...linkProps}>{children}</StyledLink>;
   }
 
   return (
     <StyledButton
-      className={clsx(className, skin, size, { disabled, isLoading: loader })}
+      className={buttonClasses}
       disabled={disabled}
       onClick={onClick}
-      id="button"
       bgcolor={bgColor}
       color={color}
       data-testid={testId}
+      aria-label={label}
+      {...props}
     >
       {loader ? "Loading..." : children}
     </StyledButton>

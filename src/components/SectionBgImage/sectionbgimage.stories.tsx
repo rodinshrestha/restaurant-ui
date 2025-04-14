@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import SectionBgImage from "./index";
+
 /**
  * Section with background image component that creates visually rich sections.
  *
@@ -51,7 +51,7 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),

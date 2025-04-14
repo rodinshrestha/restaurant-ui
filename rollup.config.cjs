@@ -6,21 +6,26 @@ const alias = require("@rollup/plugin-alias");
 const image = require("@rollup/plugin-image");
 const replace = require("@rollup/plugin-replace");
 const path = require("path");
+const json = require("@rollup/plugin-json");
+const css = require("rollup-plugin-css-only");
 
 const config = [
   {
-    input: "src/components/index.ts",
+    input: {
+      components: "src/components/index.ts",
+      providers: "src/providers/index.ts",
+    },
     output: [
       {
         dir: "dist",
         format: "cjs",
-        entryFileNames: "components/index.js",
+        entryFileNames: "[name]/index.js",
         sourcemap: true,
       },
       {
         dir: "dist",
         format: "esm",
-        entryFileNames: "components/index.esm.js",
+        entryFileNames: "[name]/index.esm.js",
         sourcemap: true,
       },
     ],
@@ -39,25 +44,17 @@ const config = [
         ],
       }),
       nodeResolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css"],
       }),
+      json(),
       image(),
       commonjs(),
+      css({ output: "dist/styles.css" }),
       typescript({
         tsconfig: "./tsconfig.json",
         exclude: ["**/__tests__", "**/*.test.tsx"],
         declaration: true,
         declarationDir: "dist/types",
-        compilerOptions: {
-          allowSyntheticDefaultImports: true,
-          esModuleInterop: true,
-          moduleResolution: "node",
-          target: "es2018",
-          module: "esnext",
-          jsx: "react-jsx",
-          outDir: "dist",
-          baseUrl: ".",
-        },
       }),
     ],
     external: ["react", "react-dom", "styled-components", "framer-motion"],

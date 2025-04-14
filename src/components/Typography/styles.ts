@@ -1,5 +1,7 @@
 import styled, { DefaultTheme, css } from "styled-components";
 
+import { mediaQuery } from "@/theme/utils";
+
 //Default boots strap font size
 // h1 Bootstrap heading (2.5rem = 40px)
 // h2 Bootstrap heading (2rem = 32px)
@@ -55,7 +57,7 @@ const style = ({ theme, color }: StyleProps) => css`
     letter-spacing: 1px;
     font-weight: 400;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       font-size: 16px;
       line-height: 24px;
     }
@@ -72,7 +74,7 @@ const style = ({ theme, color }: StyleProps) => css`
     line-height: 40px;
     font-weight: 100;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       font-size: 18px;
       line-height: 34px;
     }
@@ -83,7 +85,7 @@ const style = ({ theme, color }: StyleProps) => css`
     line-height: 32px;
     letter-spacing: 1px;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       font-size: 14px;
       line-height: 24px;
     }
@@ -106,7 +108,7 @@ const style = ({ theme, color }: StyleProps) => css`
     padding-top: 100px;
     line-height: 60px;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       padding-top: 50px;
       font-size: 38px;
       line-height: 40px;
@@ -120,7 +122,7 @@ const style = ({ theme, color }: StyleProps) => css`
   &.section-title-helper {
     margin-top: 40px;
 
-    @media (max-width: ${theme.breakPoints.md}) {
+    ${mediaQuery("md")} {
       margin-top: 20px;
     }
   }

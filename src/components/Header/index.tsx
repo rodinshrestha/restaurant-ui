@@ -1,16 +1,16 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-import { Link } from "react-router-dom";
 import clsx from "clsx";
 
+import Link from "@/components/Link";
 import defaultLogo from "@/assets/image/logo.png";
 
 import HamburgerMenuIcon from "../HamburgerIcon";
 import { StyledDiv } from "./style";
 import ImageWithFallBack from "../ImageWithFallBack";
-import { Container } from "../Container";
-import { Row } from "../Row";
-import { Col } from "../Col";
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import Drawer from "../Drawer";
 import { NavLinkType } from "./types/header.types";
 import HeaderMenu from "./components/HeaderMenu";
@@ -20,6 +20,7 @@ export type HeaderProps = {
   logo?: string;
   shouldLogoFloat?: boolean;
   isLogoRounded?: boolean;
+  LinkComponent?: ReactElement;
 };
 
 const Header = ({
@@ -27,6 +28,7 @@ const Header = ({
   navLink,
   shouldLogoFloat = false,
   isLogoRounded = false,
+  LinkComponent,
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isHeaderSticky, setIsHeaderSticky] = React.useState(false);
@@ -55,11 +57,12 @@ const Header = ({
               <div className="header-wrapper">
                 <Link
                   to="/"
+                  LinkComponent={LinkComponent}
                   className={clsx("logo-wrapper", {
                     "float-logo": !!shouldLogoFloat,
                     circle: !!isLogoRounded,
                   })}
-                  data-testid="header-logo-wrapper"
+                  testId="header-logo-wrapper"
                 >
                   <ImageWithFallBack
                     src={logo || defaultLogo}
@@ -76,7 +79,9 @@ const Header = ({
                       const active = pathname === x.url;
                       return (
                         <li className={clsx("menu-list", { active })} key={i}>
-                          <Link to={x.url}>{x.label}</Link>
+                          <Link to={x.url} LinkComponent={LinkComponent}>
+                            {x.label}
+                          </Link>
                         </li>
                       );
                     })}
@@ -102,7 +107,7 @@ const Header = ({
         overlayZindex={5}
         drawerTestId="header-drawer"
       >
-        <HeaderMenu navLink={navLink} />
+        <HeaderMenu navLink={navLink} LinkComponent={LinkComponent} />
       </Drawer>
     </>
   );

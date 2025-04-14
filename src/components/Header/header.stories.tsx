@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 
-import { theme } from "@/theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import Header from "./index";
 
@@ -95,7 +94,7 @@ const meta = {
   decorators: [
     (Story) => (
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider>
           <div style={{ width: "100%", height: "100%" }}>
             <Story />
           </div>

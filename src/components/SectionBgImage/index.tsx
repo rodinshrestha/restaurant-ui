@@ -1,7 +1,7 @@
 import Overlay from "../Overlay";
-import { Container } from "../Container";
-import { Row } from "../Row";
-import { Col } from "../Col";
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
 import Typography, { TagType } from "../Typography";
 import { StyledDiv } from "./style";
 
@@ -32,7 +32,7 @@ const SectionBgImage = ({
       aria-label="section-background-image"
     >
       {enableOverlay && <Overlay testId="section-overlay-test-id" />}
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
             <div className="menu-title-content">

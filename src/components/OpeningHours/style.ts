@@ -1,12 +1,18 @@
-import styled, { css } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
-import bgImage from "@/assets/image/fade-mountain.svg";
+import { mediaQuery } from "@/theme/utils";
 
-export const StyledDiv = styled.div`
-  ${({ theme }) => css`
+type Props = {
+  theme: DefaultTheme;
+  bgImage: string;
+};
+
+export const StyledDiv = styled.div<Props>`
+  ${({ theme, bgImage }) => css`
     padding: 60px 0;
-    background: url(${bgImage}) no-repeat 50% fixed;
+    background: ${bgImage ? `url(${bgImage})` : "none"} no-repeat 50% fixed;
     background-size: cover;
+    width: 100vw;
 
     .oppening-hours-wrapper {
       display: flex;
@@ -14,10 +20,12 @@ export const StyledDiv = styled.div`
       justify-content: center;
       align-items: center;
       gap: 40px;
+      position: relative;
+      z-index: 5;
       .oppening-hour-info {
         text-transform: uppercase;
         text-align: center;
-        @media (max-width: ${theme.breakPoints.md}) {
+        ${mediaQuery("md")} {
           display: flex;
           flex-direction: column;
           gap: 5px;

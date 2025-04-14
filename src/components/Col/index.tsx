@@ -18,7 +18,7 @@ export type ColProps = {
   xxxl?: number;
 };
 
-export const Col = ({
+const Col = ({
   children,
   xs,
   sm,
@@ -44,3 +44,5 @@ export const Col = ({
     </ColWrapper>
   );
 };
+
+export default Col;

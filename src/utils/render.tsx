@@ -1,13 +1,12 @@
-import { render as reactRender } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
+import { render as rtlRender } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
-import { theme } from "../theme";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
-export const render = (component: React.ReactNode) => {
-  return reactRender(
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>{component}</BrowserRouter>
+export const render = (ui: React.ReactElement) => {
+  return rtlRender(
+    <ThemeProvider>
+      <BrowserRouter>{ui}</BrowserRouter>
     </ThemeProvider>,
   );
 };

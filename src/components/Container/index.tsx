@@ -15,7 +15,7 @@ export type ContainerProps = {
   style?: CSSProperties;
 };
 
-export const Container = ({
+const Container = ({
   className,
   children,
   fluid = false,
@@ -26,9 +26,7 @@ export const Container = ({
     <ContainerWrapper
       className={clsx(className, {
         "container-fluid": fluid,
-        container: !fluid,
       })}
-      $container={fluid ? "fluid" : "normal"}
       id={id}
       style={style}
     >
@@ -36,3 +34,5 @@ export const Container = ({
     </ContainerWrapper>
   );
 };
+
+export default Container;
