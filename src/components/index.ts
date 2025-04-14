@@ -1,41 +1,28 @@
+import { lazy } from "react";
+
 import { withTheme } from "@/hooks/withTheme";
 
-// Components without theme provider
-import RawButton from "./Button";
-import RawHeader from "./Header";
-import RawOpeningHours from "./OpeningHours";
-import RawSectionBgImage from "./SectionBgImage";
-import RawOverlay from "./Overlay";
-import RawContainer from "./Container";
-import RawRow from "./Row";
-import RawCol from "./Col";
-import RawTypography from "./Typography";
-import Link from "./Link";
-import RawFooter from "./Footer";
-import RawOutStory from "./OurStory";
-import RawImageGallery from "./ImageGallery";
-// import RawContactForm from "./ContactForm";
-import RawMap from "./Map";
-import RawInputField from "./InputField";
-import RawInputTextArea from "./InputTextArea";
+import Row from "./Row";
+import Container from "./Container";
+import Col from "./Col";
+import Typography from "./Typography";
+
+// Lazy load all components
 
 // Injecting theme provider in the components
-const Button = withTheme(RawButton);
-const Header = withTheme(RawHeader);
-const OppeningHours = withTheme(RawOpeningHours);
-const SectionBgImage = withTheme(RawSectionBgImage);
-const Overlay = withTheme(RawOverlay);
-const Container = withTheme(RawContainer);
-const Row = withTheme(RawRow);
-const Col = withTheme(RawCol);
-const Typography = withTheme(RawTypography);
-const Footer = withTheme(RawFooter);
-const OurStory = withTheme(RawOutStory);
-const ImageGallery = withTheme(RawImageGallery);
-// const ContactForm = withTheme(RawContactForm);
-const Map = withTheme(RawMap);
-const InputField = withTheme(RawInputField);
-const InputTextArea = withTheme(RawInputTextArea);
+const Button = withTheme(lazy(() => import("./Button")));
+const Header = withTheme(lazy(() => import("./Header")));
+const OppeningHours = withTheme(lazy(() => import("./OpeningHours")));
+const SectionBgImage = withTheme(lazy(() => import("./SectionBgImage")));
+const Overlay = withTheme(lazy(() => import("./Overlay")));
+const Footer = withTheme(lazy(() => import("./Footer")));
+const OurStory = withTheme(lazy(() => import("./OurStory")));
+const ImageGallery = withTheme(lazy(() => import("./ImageGallery")));
+const ContactForm = withTheme(lazy(() => import("./ContactForm")));
+const Map = withTheme(lazy(() => import("./Map")));
+const InputField = withTheme(lazy(() => import("./InputField")));
+const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
+const Link = lazy(() => import("./Link"));
 
 export {
   Button,
@@ -51,7 +38,7 @@ export {
   Footer,
   OurStory,
   ImageGallery,
-  // ContactForm,
+  ContactForm,
   Map,
   InputField,
   InputTextArea,

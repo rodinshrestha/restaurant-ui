@@ -1,14 +1,10 @@
 import React from "react";
 
-import { useFormik } from "formik";
-
 import Button from "@/components/Button";
 import InputField from "@/components/InputField";
 import InputTextArea from "@/components/InputTextArea";
 
 import { StyledDiv } from "./style";
-import { contactSchema } from "./contact.schema";
-import { ContactFormTypes } from "./contact-form.types";
 
 type Props = {
   btnLabel?: string;
@@ -17,39 +13,63 @@ type Props = {
 };
 
 const ContactDetailForm = ({ btnLabel, btnBgColor, btnColor }: Props) => {
+  const [errors, setErrors] = React.useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+  const [formValue, setFormValue] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const formik = useFormik<ContactFormTypes>({
-    initialValues: {
-      email: "",
-      message: "",
-      name: "",
-    },
-    enableReinitialize: true,
-    validationSchema: contactSchema,
-    validateOnMount: true,
-    onSubmit: async () => {
-      setIsLoading(true);
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormValue((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: false }));
+  };
 
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1e3);
-    },
-  });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formValue.email || !formValue.message || !formValue.name) {
+      setErrors({
+        name: !formValue.name,
+        email: !formValue.email,
+        message: !formValue.message,
+      });
+      return;
+    }
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setFormValue({
+        name: "",
+        email: "",
+        message: "",
+      });
+    }, 1e3);
+  };
+
   return (
     <StyledDiv className="form-wrapper">
-      <form className="form-inner-wrapper" onSubmit={formik.handleSubmit}>
+      <form className="form-inner-wrapper" onSubmit={handleSubmit}>
         <div className="col-6">
           <InputField
             name="name"
             placeholder="your name"
             label="Name"
-            value={formik.values.name}
-            onBlur={formik.handleBlur}
-            touched={formik.touched.name}
-            error={!!formik.errors.name}
-            errorMsg={formik.errors.name}
-            onChange={formik.handleChange}
+            value={formValue.name}
+            touched={true}
+            error={errors.name}
+            errorMsg="Name is required"
+            onChange={handleOnChange}
           />
         </div>
 
@@ -58,12 +78,11 @@ const ContactDetailForm = ({ btnLabel, btnBgColor, btnColor }: Props) => {
             name="email"
             placeholder="email@exmaple.com"
             label="Email"
-            touched={formik.touched.email}
-            value={formik.values.email}
-            onBlur={formik.handleBlur}
-            error={!!formik.errors.email}
-            errorMsg={formik.errors.email}
-            onChange={formik.handleChange}
+            touched={true}
+            value={formValue.email}
+            error={errors.email}
+            errorMsg="Email should be valid and cannot be empty"
+            onChange={handleOnChange}
           />
         </div>
 
@@ -75,12 +94,11 @@ const ContactDetailForm = ({ btnLabel, btnBgColor, btnColor }: Props) => {
             label="Message"
             rows={20}
             cols={2}
-            onBlur={formik.handleBlur}
-            touched={formik.touched.message}
-            error={!!formik.errors.message}
-            errorMsg={formik.errors.message}
-            onChange={formik.handleChange}
-            value={formik.values.message}
+            error={errors.message}
+            touched={true}
+            errorMsg="Message is required"
+            onChange={handleOnChange}
+            value={formValue.message}
           />
         </div>
 

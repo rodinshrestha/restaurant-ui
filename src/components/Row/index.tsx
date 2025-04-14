@@ -32,4 +32,4 @@ const Row = ({
   );
 };
 
-export default Row;
+export default React.memo(Row);
