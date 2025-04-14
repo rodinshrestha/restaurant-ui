@@ -1,7 +1,7 @@
 {
   "name": "restaurant-ui",
   "private": false,
-  "version": "0.7.0-TEST",
+  "version": "0.8.0-OPTIMIZE",
   "main": "dist/components/index.js",
   "module": "dist/components/index.esm.js",
   "types": "dist/types/components/index.d.ts",
@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "formik": "^2.4.6",
     "framer-motion": "^12.6.3",
     "google-map-react": "^2.2.1",
     "html-react-parser": "^5.2.3",
@@ -58,8 +57,7 @@
     "react-dom": "^18.2.0",
     "react-image-lightbox": "^5.1.4",
     "react-router-dom": "^7.4.1",
-    "styled-components": "^6.1.16",
-    "yup": "^1.6.1"
+    "styled-components": "^6.1.16"
   },
   "devDependencies": {
     "@babel/plugin-transform-template-literals": "^7.26.8",

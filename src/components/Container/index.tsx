@@ -35,4 +35,4 @@ const Container = ({
   );
 };
 
-export default Container;
+export default React.memo(Container);
