@@ -5,19 +5,14 @@ import Typography from "@/components/Typography";
 
 import { StyledDiv } from "./style";
 
-export type DisplayMenuProps = {
+export type MenuListProps = {
   name: string;
   description?: string;
   price: string;
   food_type?: Array<"box" | "leaf" | "kids" | "vegan" | "new">;
 };
 
-const DisplayMenu = ({
-  name,
-  description,
-  price,
-  food_type,
-}: DisplayMenuProps) => {
+const MenuList = ({ name, description, price, food_type }: MenuListProps) => {
   const icon = getFoodIcon(food_type);
   return (
     <StyledDiv data-testid={`menu-item-${name}`}>
@@ -53,4 +48,4 @@ const DisplayMenu = ({
   );
 };
 
-export default React.memo(DisplayMenu);
+export default React.memo(MenuList);

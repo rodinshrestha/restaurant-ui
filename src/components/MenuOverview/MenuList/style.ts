@@ -24,9 +24,7 @@ export const StyledDiv = styled.div`
       .h6 {
         text-decoration: underline;
       }
-
       .price-group {
-        /* font-weight: bold; */
         .span {
           text-decoration: underline;
         }
@@ -51,9 +49,8 @@ export const StyledDiv = styled.div`
       display: flex;
       white-space: nowrap;
 
-      ${maxMediaQuery("md")} {
+      @media (max-width: 1300px) {
         white-space: unset;
-
         word-wrap: break-word;
       }
 

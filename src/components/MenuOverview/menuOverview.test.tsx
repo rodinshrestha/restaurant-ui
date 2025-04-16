@@ -2,26 +2,29 @@ import { describe, it, expect, vi } from "vitest";
 import { screen } from "@testing-library/react";
 
 import { render } from "@/utils/render";
-import type { DisplayMenuProps } from "@/components/DisplayMenu";
 
 import MenuOverview from "./index";
+import { MenuListProps } from "./MenuList";
 
-// Mock the DisplayMenu component since it's a child component
-vi.mock("@/components/DisplayMenu", () => ({
+// Define the mock component first
+const MockMenuItem = ({ menuItemList }: { menuItemList: MenuListProps[] }) => (
+  <div data-testid="diplay-menu-test-wrapper">
+    {menuItemList.map((item) => (
+      <div key={item.name} data-testid={`menu-item-${item.name}`}>
+        {item.name}
+      </div>
+    ))}
+  </div>
+);
+
+// Then set up the mock
+vi.mock("@/components/MenuOverview/MenuItemList", () => ({
   __esModule: true,
-  default: ({ menuList }: { menuList: DisplayMenuProps[] }) => (
-    <div data-testid="display-menu">
-      {menuList.map((item) => (
-        <div key={item.name} data-testid={`menu-item-${item.name}`}>
-          {item.name}
-        </div>
-      ))}
-    </div>
-  ),
+  default: MockMenuItem,
 }));
 
 describe("MenuOverview", () => {
-  const mockMenuList: DisplayMenuProps[] = [
+  const mockMenuItemList: MenuListProps[] = [
     {
       name: "Spaghetti Carbonara",
       description:
@@ -43,7 +46,7 @@ describe("MenuOverview", () => {
       <MenuOverview
         menuTitle="Main Courses"
         menuDescription="Our signature dishes"
-        menuList={mockMenuList}
+        menuList={mockMenuItemList}
       />,
     );
 
@@ -56,20 +59,20 @@ describe("MenuOverview", () => {
       <MenuOverview
         menuTitle="Main Courses"
         menuDescription="Our signature dishes"
-        menuList={mockMenuList}
+        menuList={mockMenuItemList}
       />,
     );
 
     const displayMenu = screen.getByTestId("diplay-menu-test-wrapper");
     expect(displayMenu).toBeInTheDocument();
 
-    mockMenuList.forEach((item) => {
+    mockMenuItemList.forEach((item) => {
       expect(screen.getByTestId(`menu-item-${item.name}`)).toBeInTheDocument();
     });
   });
 
   it("renders without description when not provided", () => {
-    render(<MenuOverview menuTitle="Desserts" menuList={mockMenuList} />);
+    render(<MenuOverview menuTitle="Desserts" menuList={mockMenuItemList} />);
 
     expect(screen.getByTestId("menu-title-test-id")).toBeInTheDocument();
     expect(screen.getByTestId("diplay-menu-test-wrapper")).toBeInTheDocument();
@@ -80,11 +83,11 @@ describe("MenuOverview", () => {
       <MenuOverview
         menuTitle="Main Courses"
         menuDescription="Our signature dishes"
-        menuList={mockMenuList}
+        menuList={mockMenuItemList}
       />,
     );
 
-    mockMenuList.forEach((item) => {
+    mockMenuItemList.forEach((item) => {
       expect(screen.getByTestId(`menu-item-${item.name}`)).toHaveTextContent(
         item.name,
       );

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
+import { maxMediaQuery } from "@/theme/utils";
+
 export const StyledDiv = styled.div`
-  border-bottom: 1px solid #f2f2f2;
   padding-bottom: 20px;
 
   .menu-title-wrapper {
@@ -9,8 +10,12 @@ export const StyledDiv = styled.div`
   }
 
   .menu-list-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    column-gap: 20px;
+    ${maxMediaQuery("md")} {
+      grid-template-columns: 1fr;
+    }
   }
 `;

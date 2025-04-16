@@ -2,11 +2,11 @@ import React from "react";
 
 import { StyledDiv } from "./style";
 import Typography from "../Typography";
-import DisplayMenu, { DisplayMenuProps } from "./DisplayMenu";
+import MenuList, { MenuListProps } from "./MenuList";
 
-type MenuOverviewProps = {
+export type MenuOverviewProps = {
   menuTitle: string;
-  menuList: Array<DisplayMenuProps>;
+  menuList: Array<MenuListProps>;
   menuDescription?: string;
 };
 
@@ -35,7 +35,7 @@ const MenuOverview = ({
       </div>
       <div className="menu-list-wrapper" data-testid="diplay-menu-test-wrapper">
         {menuList.map((item, i) => {
-          return <DisplayMenu {...item} key={i} />;
+          return <MenuList {...item} key={i} />;
         })}
       </div>
     </StyledDiv>
