@@ -23,6 +23,7 @@ const Map = withTheme(lazy(() => import("./Map")));
 const InputField = withTheme(lazy(() => import("./InputField")));
 const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
 const Link = lazy(() => import("./Link"));
+const ImageWithFallBack = lazy(() => import("./ImageWithFallBack"));
 
 export {
   Button,
@@ -42,6 +43,7 @@ export {
   Map,
   InputField,
   InputTextArea,
+  ImageWithFallBack,
 };
 
 // Export types
