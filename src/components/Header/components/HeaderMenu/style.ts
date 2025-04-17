@@ -4,22 +4,22 @@ import { mediaQuery } from "@/theme/utils";
 
 type StyleProps = {
   theme: DefaultTheme;
-  bgcolor?: string;
-  navcolor?: string;
-  navhovercolor?: string;
-  navactivecolor?: string;
+  $bgcolor?: string;
+  $navcolor?: string;
+  $navhovercolor?: string;
+  $navactivecolor?: string;
 };
 
 export const StyledUl = styled.ul<StyleProps>`
   ${({
     theme,
-    bgcolor = "#fff",
-    navcolor = "#000",
-    navhovercolor = "grey",
-    navactivecolor = "grey",
+    $bgcolor = "#fff",
+    $navcolor = "#000",
+    $navhovercolor = "grey",
+    $navactivecolor = "grey",
   }) => css`
     &.menu-list-wrapper {
-      background-color: ${bgcolor};
+      background-color: ${$bgcolor};
       border-top: 1px solid #f2f2f2;
       height: calc(100% - 90px);
       position: absolute;
@@ -39,7 +39,7 @@ export const StyledUl = styled.ul<StyleProps>`
         &.link-item {
           font-size: 24px;
           position: relative;
-          color: ${navcolor};
+          color: ${$navcolor};
           &::before {
             position: absolute;
             content: "";
@@ -47,7 +47,7 @@ export const StyledUl = styled.ul<StyleProps>`
             height: 2px;
             width: 100%;
             visibility: hidden;
-            background-color: ${navhovercolor};
+            background-color: ${$navhovercolor};
             -webkit-transform: scaleX(0);
             transform: scaleX(0);
             -webkit-transition: all 0.3s ease-in-out 0s;
@@ -55,7 +55,7 @@ export const StyledUl = styled.ul<StyleProps>`
           }
           &:hover {
             a {
-              color: ${navhovercolor};
+              color: ${$navhovercolor};
             }
 
             &::before {
@@ -67,7 +67,7 @@ export const StyledUl = styled.ul<StyleProps>`
 
           &.active {
             a {
-              color: ${navactivecolor};
+              color: ${$navactivecolor};
               &::before {
                 position: absolute;
                 content: "";
@@ -75,7 +75,7 @@ export const StyledUl = styled.ul<StyleProps>`
                 height: 2px;
                 width: 100%;
                 left: 0;
-                background-color: ${navactivecolor};
+                background-color: ${$navactivecolor};
               }
             }
           }

@@ -67,10 +67,10 @@ const Header = ({
           sticky: isHeaderSticky,
           showBoxShadow: !isMenuOpen,
         })}
-        headerheight={headerHeight}
-        navcolor={navColor}
-        navhovercolor={navHoverColor}
-        navactivecolor={navActiveColor}
+        $headerheight={headerHeight}
+        $navcolor={navColor}
+        $navhovercolor={navHoverColor}
+        $navactivecolor={navActiveColor}
       >
         <Container fluid>
           <Row>

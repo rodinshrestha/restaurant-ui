@@ -3,6 +3,7 @@ import React from "react";
 import Header from "@/components/Header";
 
 import SectionBgImage from "./components/SectionBgImage";
+import OurStory from "./components/OurStory";
 
 const navLink = [
   {
@@ -40,6 +41,11 @@ const App: React.FC = () => {
         bgImage=""
         title="Section Bg Image Title"
         description="Section Bg Image description"
+      />
+      <OurStory
+        storyDescription="Story Description"
+        storySubTitle="<Story Subtitle>"
+        storyTitle="<Story Titile>"
       />
     </>
   );

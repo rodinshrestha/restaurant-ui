@@ -24,14 +24,16 @@ const OurStory = ({
   const isContentNull = !storyTitle && !storyDescription && !storySubTitle;
 
   const formattedStoryContent = React.useMemo(() => {
-    if (!storyDescription || isContentNull) return "";
+    if (!storyDescription) return "";
 
     return storyDescription.replace(/\n+/g, "<br>");
-  }, [storyDescription, isContentNull]);
+  }, [storyDescription]);
 
   if (isContentNull) {
     return <span />;
   }
+
+  console.log({ test: parse(formattedStoryContent) }, "@@@");
 
   return (
     <StyledSection data-testid="our-story-section-id">

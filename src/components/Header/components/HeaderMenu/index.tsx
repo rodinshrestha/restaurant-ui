@@ -27,10 +27,10 @@ const HeaderMenu = ({
   return (
     <StyledUl
       className="menu-list-wrapper"
-      bgcolor={headerBgColor}
-      navcolor={navColor}
-      navhovercolor={navHoverColor}
-      navactivecolor={navActiveColor}
+      $bgcolor={headerBgColor}
+      $navcolor={navColor}
+      $navhovercolor={navHoverColor}
+      $navactivecolor={navActiveColor}
     >
       {navLink.map((x) => {
         const { pathname } = window.location;
