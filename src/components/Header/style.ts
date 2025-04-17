@@ -85,7 +85,7 @@ export const StyledDiv = styled.div<StyleProps>`
         .logo-title {
           display: flex;
           align-self: center;
-          color: ${theme.color.black["100"]};
+          color: ${theme.color.primary};
           text-transform: uppercase;
           letter-spacing: 0.25em;
           font-size: 22px;

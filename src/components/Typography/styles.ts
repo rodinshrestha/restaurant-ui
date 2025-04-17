@@ -100,7 +100,7 @@ const style = ({ color }: StyleProps) => css`
   }
 
   &.section-title {
-    color: ${color || theme.color.black["100"]};
+    color: ${color || theme.color.primary};
     font-size: 56px;
     font-family: inherit;
     position: relative;

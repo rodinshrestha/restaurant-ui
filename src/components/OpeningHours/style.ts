@@ -54,7 +54,7 @@ export const StyledDiv = styled.div<Props>`
           }
 
           a {
-            color: ${theme.color.black["100"]};
+            color: ${theme.color.primary};
             text-decoration: underline;
             font-weight: 400;
           }

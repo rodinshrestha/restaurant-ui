@@ -12,7 +12,7 @@ export const StyledSection = styled.section`
 
     .our-story-wrapper {
       margin-top: 40px;
-      color: ${theme.color.black["100"]};
+      color: ${theme.color.primary};
       display: flex;
       flex-direction: column;
       gap: 10px;

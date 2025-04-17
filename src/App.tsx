@@ -6,6 +6,7 @@ import SectionBgImage from "./components/SectionBgImage";
 import OurStory from "./components/OurStory";
 import OpeningHours from "./components/OpeningHours";
 import { Footer } from "./components";
+import { theme } from "./theme";
 
 const navLink = [
   {
@@ -36,8 +37,8 @@ const App: React.FC = () => {
     <>
       <Header
         navLink={navLink}
-        navActiveColor="rgb(14, 168, 96)"
-        navHoverColor="rgb(14, 168, 96)"
+        navActiveColor={theme.color.primary}
+        navHoverColor={theme.color.primary}
       />
       <SectionBgImage
         title="SectionBgImage Component"

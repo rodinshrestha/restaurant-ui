@@ -1,3 +1,5 @@
+import defaultImage from "@/assets/image/fade-mountain.png";
+
 import Overlay from "../Overlay";
 import Container from "../Container";
 import Row from "../Row";
@@ -9,6 +11,7 @@ export interface SectionBgImageProps {
   title: string;
   description?: string;
   as?: string;
+  sectionHeight?: string;
   bgImage?: string;
   enableOverlay?: boolean;
   titleColor?: string;
@@ -16,18 +19,20 @@ export interface SectionBgImageProps {
 }
 
 const SectionBgImage = ({
-  bgImage,
+  bgImage = defaultImage,
   title,
   description,
   as = "h1",
-  enableOverlay = true,
+  enableOverlay = false,
   titleColor,
   descriptionColor,
+  sectionHeight,
 }: SectionBgImageProps) => {
   return (
     <StyledDiv
       className="section-image-wrapper"
       $bgImage={bgImage}
+      $sectionHeight={sectionHeight}
       data-testid="section-image-test-id"
       aria-label="section-background-image"
     >
