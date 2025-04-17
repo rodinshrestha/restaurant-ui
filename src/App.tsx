@@ -59,6 +59,8 @@ const App: React.FC = () => {
         openInformation="Open Information"
         orderOnlineUrl="#"
         phoneNumber="Phone Number"
+        linkTextColor="red"
+        textColor="yellow"
       />
 
       <Footer footerText="FooterComponent" />
