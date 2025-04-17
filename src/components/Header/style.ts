@@ -1,13 +1,27 @@
-import styled, { css } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
-import { mediaQuery } from "@/theme/utils";
+import { mediaQuery, maxMediaQuery } from "@/theme/utils";
 
-export const StyledDiv = styled.div`
-  ${({ theme }) => css`
+type StyleProps = {
+  theme: DefaultTheme;
+  headerheight?: string;
+  navcolor?: string;
+  navhovercolor?: string;
+  navactivecolor?: string;
+};
+
+export const StyledDiv = styled.div<StyleProps>`
+  ${({
+    theme,
+    headerheight = "90px",
+    navcolor = "#000",
+    navhovercolor = "grey",
+    navactivecolor = "grey",
+  }) => css`
     position: relative;
     z-index: 100;
-    background-color: ${theme.color.grey};
     width: 100%;
+    background-color: #fff;
 
     @keyframes slideDown {
       from {
@@ -32,11 +46,7 @@ export const StyledDiv = styled.div`
     .header-wrapper {
       display: flex;
       justify-content: space-between;
-      height: 90px;
-
-      ${mediaQuery("md")} {
-        height: 60px;
-      }
+      height: ${headerheight};
 
       .logo-wrapper {
         display: flex;
@@ -46,20 +56,20 @@ export const StyledDiv = styled.div`
         font-family: ${theme.font.defaultSystemTheme};
         overflow: hidden;
         margin-top: 10px;
-        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+        width: 100px;
+        height: 70px;
+
+        &.box-shadow {
+          box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+        }
 
         &.float-logo {
-          width: 140px;
-          height: 140px;
+          width: 120px;
+          height: 120px;
         }
 
         &.circle {
           border-radius: 50%;
-        }
-
-        ${mediaQuery("md")} {
-          width: 100px;
-          height: 100px;
         }
 
         img {
@@ -114,13 +124,14 @@ export const StyledDiv = styled.div`
           display: flex;
           gap: 20px;
           font-size: 18px;
-          @media (max-width: ${theme.breakpoints.lg}) {
+          ${maxMediaQuery("md")} {
             display: none;
           }
 
           .menu-list {
             cursor: pointer;
             position: relative;
+            color: ${navcolor};
 
             &::before {
               position: absolute;
@@ -129,7 +140,7 @@ export const StyledDiv = styled.div`
               height: 2px;
               width: 100%;
               visibility: hidden;
-              background-color: ${theme.color.lightGrey["100"]};
+              background-color: ${navhovercolor};
               -webkit-transform: scaleX(0);
               transform: scaleX(0);
               -webkit-transition: all 0.3s ease-in-out 0s;
@@ -138,7 +149,7 @@ export const StyledDiv = styled.div`
 
             &:hover {
               opacity: 0.8;
-              color: ${theme.color.lightGrey["100"]};
+              color: ${navhovercolor};
               &::before {
                 visibility: visible;
                 -webkit-transform: scaleX(1);
@@ -147,11 +158,12 @@ export const StyledDiv = styled.div`
             }
 
             &.active {
-              color: ${theme.color.lightGrey["100"]};
+              color: ${navactivecolor};
               &::before {
                 visibility: visible;
                 transform: scaleX(1);
                 -webkit-transform: scaleX(1);
+                background-color: ${navactivecolor};
               }
             }
             a {
@@ -167,7 +179,7 @@ export const StyledDiv = styled.div`
           font-size: 24px;
           line-height: 24px;
           letter-spacing: 0.25em;
-          color: ${theme.color.white["100"]};
+          color: ${navcolor};
           text-transform: uppercase;
           position: relative;
           cursor: pointer;
