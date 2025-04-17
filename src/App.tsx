@@ -45,9 +45,9 @@ const App: React.FC = () => {
         description="Section Bg Image description"
       />
       <OurStory
-        storyDescription="Story Description"
-        storySubTitle="Story Subtitle"
-        storyTitle="OurStory Component"
+        description="Story Description"
+        subTitle="Story Subtitle"
+        title="OurStory Component"
       />
 
       <OpeningHours
