@@ -8,6 +8,8 @@ type StyleProps = {
   $navcolor?: string;
   $navhovercolor?: string;
   $navactivecolor?: string;
+  $logowidth?: string;
+  $logoheight?: string;
 };
 
 export const StyledDiv = styled.div<StyleProps>`
@@ -17,6 +19,8 @@ export const StyledDiv = styled.div<StyleProps>`
     $navcolor = "#000",
     $navhovercolor = "grey",
     $navactivecolor = "grey",
+    $logowidth = "100px",
+    $logoheight = "70px",
   }) => css`
     position: relative;
     z-index: 100;
@@ -56,8 +60,8 @@ export const StyledDiv = styled.div<StyleProps>`
         font-family: ${theme.font.defaultSystemTheme};
         overflow: hidden;
         margin-top: 10px;
-        width: 100px;
-        height: 70px;
+        width: ${$logowidth};
+        height: ${$logoheight};
 
         &.box-shadow {
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);

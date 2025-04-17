@@ -88,6 +88,17 @@ describe("Header Component", () => {
         "box-shadow": "0 5px 16px rgba(0, 0, 0, 0.1)",
       });
     });
+
+    it("should render the custom height and width of logo", () => {
+      render(
+        <Header navLink={mockNavLinks} logoHeight="150px" logoWidth="150px" />,
+      );
+      const logoWrapper = screen.getByTestId("header-logo-wrapper");
+      expect(logoWrapper).toHaveStyle({
+        height: "150px",
+        width: "150px",
+      });
+    });
   });
 
   describe("Navigation", () => {

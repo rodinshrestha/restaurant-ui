@@ -9,14 +9,15 @@ import Header from "./index";
  * A responsive header component that provides navigation and branding for the application.
  *
  * ## Features
- * - Responsive design with mobile menu
- * - Customizable logo with floating and rounded options
- * - Sticky behavior on scroll
- * - React Router integration
- * - Accessibility support
- * - Toggle boxshadow for the logo
+ * - Responsive design with mobile menu.
+ * - Customizable logo with floating and rounded options.
+ * - Sticky behavior on scroll.
+ * - React Router integration.
+ * - Accessibility support.
+ * - Toggle boxshadow for the logo.
  * - Dynamic header height, navigation color, header background color for now its works only in mobile view.
- * - Support custom classname to override the css
+ * - Support custom height and width for the logo.
+ * - Support custom classname to override the css.
  *
  * ## Usuage
  * ```tsx
@@ -34,6 +35,8 @@ import Header from "./index";
  *  navHoverColor = "grey"
  *  navActiveColor = "grey"
  *  headerBgColor = "#fff" //bg color only works for mobile view
+ *  logoWidth = "100px"
+ *  logoHeigh = "70px"
  *  className="custom-classname"
  * />
  * ```
@@ -46,25 +49,27 @@ const meta = {
     layout: "fullscreen",
   },
   argTypes: {
-    logo: {
-      control: "text",
-      description: "URL of the logo image. If not provided, uses default logo",
-      defaultValue: "URL",
-      table: {
-        defaultValue: { summary: "asset/image/logo.png" },
-      },
-    },
     navLink: {
       control: "object",
       description: "Array of navigation links with url and label properties",
       table: {
+        type: { summary: "required" },
         defaultValue: { summary: "required" },
+      },
+    },
+    logo: {
+      control: "text",
+      description: "URL of the logo image. If not provided, uses default logo",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "asset/image/logo.png" },
       },
     },
     shouldLogoFloat: {
       control: "boolean",
       description: "Whether the logo should float below the header",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "false" },
       },
     },
@@ -72,6 +77,7 @@ const meta = {
       control: "boolean",
       description: "Whether the logo should have rounded corners",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "false" },
       },
     },
@@ -79,6 +85,7 @@ const meta = {
       control: "boolean",
       description: "Whether the logo should have box shadow ",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "false" },
       },
     },
@@ -87,6 +94,7 @@ const meta = {
       description:
         "Custom header background color, For now custom background only works for mobile view",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "#fff" },
       },
     },
@@ -95,6 +103,7 @@ const meta = {
       description:
         "Customize the height of the header. Please use the value in pixel",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "90px" },
       },
     },
@@ -103,6 +112,7 @@ const meta = {
       description:
         "It is for the routing purpose, If nothing is given then as a default it will be a tag. for example pass the routing component.",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "html a tag" },
       },
     },
@@ -110,6 +120,7 @@ const meta = {
       control: "text",
       description: "Color of navigation",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "#000" },
       },
     },
@@ -117,6 +128,7 @@ const meta = {
       control: "text",
       description: "Navigation link color for active nav",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "grey" },
       },
     },
@@ -124,12 +136,32 @@ const meta = {
       control: "text",
       description: "Navigation hover color",
       table: {
+        type: { summary: "optional" },
         defaultValue: { summary: "grey" },
+      },
+    },
+    logoHeight: {
+      control: "text",
+      description: "Height of the logo",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "70px" },
+      },
+    },
+    logoWidth: {
+      control: "text",
+      description: "Width of the logo",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "100px" },
       },
     },
     className: {
       control: "text",
       description: "Custom classname to override the style",
+      table: {
+        type: { summary: "optional" },
+      },
     },
   },
   decorators: [

@@ -27,6 +27,8 @@ export type HeaderProps = {
   navHoverColor?: string;
   navActiveColor?: string;
   headerBgColor?: string;
+  logoWidth?: string;
+  logoHeight?: string;
   className?: string;
 };
 
@@ -42,6 +44,8 @@ const Header = ({
   navHoverColor,
   navActiveColor,
   headerBgColor,
+  logoWidth,
+  logoHeight,
   className,
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -71,6 +75,8 @@ const Header = ({
         $navcolor={navColor}
         $navhovercolor={navHoverColor}
         $navactivecolor={navActiveColor}
+        $logowidth={logoWidth}
+        $logoheight={logoHeight}
       >
         <Container fluid>
           <Row>
