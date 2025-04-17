@@ -13,10 +13,13 @@ export const StyledDiv = styled.div`
       grid-template-columns: 1fr;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .image-wrapper {
+      height: 500px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 `;
