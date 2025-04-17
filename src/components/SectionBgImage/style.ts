@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledDiv = styled.div<{ $bgImage: string }>`
+export const StyledDiv = styled.div<{ $bgImage?: string }>`
   ${({ $bgImage }) => css`
     &.section-image-wrapper {
       background-image: url(${$bgImage});

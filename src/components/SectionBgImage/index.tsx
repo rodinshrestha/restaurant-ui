@@ -6,10 +6,10 @@ import Typography, { TagType } from "../Typography";
 import { StyledDiv } from "./style";
 
 export interface SectionBgImageProps {
-  bgImage: string;
   title: string;
   description?: string;
   as?: string;
+  bgImage?: string;
   enableOverlay?: boolean;
   titleColor?: string;
   descriptionColor?: string;

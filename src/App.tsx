@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 
 import SectionBgImage from "./components/SectionBgImage";
 import OurStory from "./components/OurStory";
+import OpeningHours from "./components/OpeningHours";
+import { Footer } from "./components";
 
 const navLink = [
   {
@@ -20,7 +22,7 @@ const navLink = [
   },
   {
     label: "Order Online",
-    url: "#",
+    url: "/order-online",
   },
 
   {
@@ -38,15 +40,27 @@ const App: React.FC = () => {
         navHoverColor="rgb(14, 168, 96)"
       />
       <SectionBgImage
-        bgImage=""
-        title="Section Bg Image Title"
+        title="SectionBgImage Component"
         description="Section Bg Image description"
       />
       <OurStory
         storyDescription="Story Description"
-        storySubTitle="<Story Subtitle>"
-        storyTitle="<Story Titile>"
+        storySubTitle="Story Subtitle"
+        storyTitle="OurStory Component"
       />
+
+      <OpeningHours
+        hoursTitle="OpeningHours Component"
+        address="Address test"
+        dinnerTime="Dinner Time"
+        lastTableSeated="Last table seated"
+        lunchTime="Lunch time"
+        openInformation="Open Information"
+        orderOnlineUrl="#"
+        phoneNumber="Phone Number"
+      />
+
+      <Footer footerText="FooterComponent" />
     </>
   );
 };
