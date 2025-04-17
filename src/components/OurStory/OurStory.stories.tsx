@@ -23,10 +23,10 @@ import OurStory from "./index";
  *   storyTitle="Our Story"
  *   storySubTitle="Discover Our Journey"
  *   storyDescription="Welcome to our restaurant..."
- *   containerFluid={true}
  *   titleColor="#000"
  *   descriptionColor="#000"
  *   subTitleColor="#000"
+ *   containerFluid
  * />
  * ```
  */
