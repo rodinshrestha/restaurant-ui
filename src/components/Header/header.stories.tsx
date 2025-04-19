@@ -14,6 +14,7 @@ import Header from "./index";
  * - Sticky behavior on scroll
  * - React Router integration
  * - Accessibility support
+ * - Dynamic logo height and logo width
  *
  * ## Usuage
  * ```tsx
@@ -25,6 +26,8 @@ import Header from "./index";
  *   ]}
  *  shouldLogoFloat={false}
  *  isLogoRounded={false}
+ *  logoHeight: "",
+ *  logoWidth: "",
  * />
  * ```
  *
@@ -123,6 +126,8 @@ export const HeaderPlayground: Story = {
   args: {
     logo: "/logo.png",
     navLink: defaultNavLinks,
+    logoHeight: "",
+    logoWidth: "",
   },
   render: (args) => (
     <div style={{ border: "1px solid black" }}>
@@ -139,6 +144,8 @@ export const Default: Story = {
   args: {
     logo: "/logo.png",
     navLink: defaultNavLinks,
+    logoHeight: "",
+    logoWidth: "",
   },
   tags: ["!dev"],
 };

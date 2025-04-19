@@ -21,6 +21,8 @@ export type HeaderProps = {
   shouldLogoFloat?: boolean;
   isLogoRounded?: boolean;
   LinkComponent?: ReactElement;
+  logoWidth?: string;
+  logoHeight?: string;
 };
 
 const Header = ({
@@ -29,6 +31,8 @@ const Header = ({
   shouldLogoFloat = false,
   isLogoRounded = false,
   LinkComponent,
+  logoWidth = "100px",
+  logoHeight = "100%",
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isHeaderSticky, setIsHeaderSticky] = React.useState(false);
@@ -50,6 +54,8 @@ const Header = ({
         id="header"
         data-testid="header"
         className={clsx({ sticky: isHeaderSticky, showBoxShadow: !isMenuOpen })}
+        logowidth={logoWidth}
+        logoheight={logoHeight}
       >
         <Container fluid>
           <Row>

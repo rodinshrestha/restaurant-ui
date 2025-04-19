@@ -1,9 +1,15 @@
-import styled, { css } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
 import { mediaQuery } from "@/theme/utils";
 
-export const StyledDiv = styled.div`
-  ${({ theme }) => css`
+type StyleProps = {
+  theme: DefaultTheme;
+  logowidth: string;
+  logoheight: string;
+};
+
+export const StyledDiv = styled.div<StyleProps>`
+  ${({ theme, logowidth, logoheight }) => css`
     position: relative;
     z-index: 100;
     background-color: ${theme.color.grey};
@@ -58,8 +64,8 @@ export const StyledDiv = styled.div`
         }
 
         ${mediaQuery("md")} {
-          width: 100px;
-          height: 100px;
+          width: ${logowidth};
+          height: ${logoheight};
         }
 
         img {
