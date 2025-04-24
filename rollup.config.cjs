@@ -34,6 +34,7 @@ const config = [
       replace({
         preventAssignment: true,
         "use client": "",
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       }),
       alias({
         entries: [
@@ -46,10 +47,15 @@ const config = [
       nodeResolve({
         extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css"],
         preferBuiltins: true,
+        browser: true,
       }),
       json(),
       image(),
-      commonjs(),
+      commonjs({
+        include: /node_modules/,
+        transformMixedEsModules: true,
+        requireReturnsDefault: "auto",
+      }),
       css({ output: "dist/styles.css" }),
       typescript({
         tsconfig: "./tsconfig.json",

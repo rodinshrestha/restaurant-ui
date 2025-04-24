@@ -25,10 +25,11 @@ const Map = withTheme(lazy(() => import("./Map")));
 const InputField = withTheme(lazy(() => import("./InputField")));
 const Modal = withTheme(lazy(() => import("./Modal")));
 const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
+const VideoBanner = withTheme(lazy(() => import("./VideoBanner")));
+const PageNotFound = withTheme(lazy(() => import("./PageNotFound")));
 
 const Link = lazy(() => import("./Link"));
 const ImageWithFallBack = lazy(() => import("./ImageWithFallBack"));
-const VideoBanner = lazy(() => import("./VideoBanner"));
 
 export {
   Button,
@@ -54,6 +55,7 @@ export {
   Seo,
   Modal,
   VideoBanner,
+  PageNotFound,
 };
 
 // Export types
@@ -82,3 +84,4 @@ export type { MenuListProps } from "./MenuOverview/MenuList";
 export type { SimpleTextProps } from "./SimpleText";
 export type { ModalProps } from "./Modal";
 export type { VideoBannerProps } from "./VideoBanner";
+export type { PageNotFoundProps } from "./PageNotFound";
