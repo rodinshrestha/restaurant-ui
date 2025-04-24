@@ -9,7 +9,6 @@ import Typography from "./Typography";
 import MenuOverview from "./MenuOverview";
 import SimpleText from "./SimpleText";
 import Seo from "./Seo";
-// import VideoBanner from;
 
 // Injecting theme provider in the components
 const Button = withTheme(lazy(() => import("./Button")));
