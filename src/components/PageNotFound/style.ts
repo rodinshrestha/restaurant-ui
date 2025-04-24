@@ -13,7 +13,7 @@ const StyledSection = styled.main<StyleProps>`
       justify-content: center;
       align-items: center;
       gap: 20px;
-      border-top: 1px solid rgba(212, 212, 255, 0.1);
+      border-top: 1px solid #f2f2f2;
       background-color: ${$bgColor};
       .not-found-title {
         font-size: 67px;

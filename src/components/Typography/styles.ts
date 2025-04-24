@@ -36,7 +36,7 @@ const style = ({ color }: StyleProps) => css`
   }
 
   &.h2 {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 40px;
     letter-spacing: 2px;
     color: ${color || theme.color.primary};

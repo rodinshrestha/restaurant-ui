@@ -52,7 +52,7 @@ const OurStory = ({
                 {title && (
                   <Typography
                     as="h2"
-                    className="section-title"
+                    className="ourstory-title"
                     testId="our-story-title-id"
                     color={titleColor}
                   >
