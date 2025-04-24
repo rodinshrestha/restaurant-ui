@@ -67,8 +67,8 @@ describe("Header Component", () => {
       render(<Header navLink={mockNavLinks} shouldLogoFloat />);
       const menuWrapper = screen.getByTestId("header-logo-wrapper");
       expect(menuWrapper).toHaveStyle({
-        width: "120px",
-        height: "120px",
+        width: "140px",
+        height: "140px",
       });
     });
 

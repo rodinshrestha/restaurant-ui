@@ -55,6 +55,7 @@
     "html-react-parser": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-image-lightbox": "^5.1.4",
     "react-router-dom": "^7.4.1",
     "styled-components": "^6.1.16"
@@ -84,6 +85,7 @@
     "@types/node": "^20.11.24",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.2.19",
+    "@types/react-helmet": "^6.1.11",
     "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
@@ -111,9 +113,9 @@
     "vitest": "^3.1.1"
   },
   "peerDependencies": {
+    "framer-motion": "12.6.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^5.3.0",
-    "framer-motion": "12.6.3"
+    "styled-components": "^5.3.0"
   }
 }

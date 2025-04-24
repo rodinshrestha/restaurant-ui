@@ -63,7 +63,7 @@ const App: React.FC = () => {
         textColor="yellow"
       />
 
-      <Footer footerText="FooterComponent" />
+      <Footer footerText="FooterComponent" facebookLink="asdasd" />
     </>
   );
 };

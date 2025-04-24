@@ -9,6 +9,9 @@ export const StyledDiv = styled.div`
 
     .menu-overview-title-wrapper {
       margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
     .menu-list-wrapper {

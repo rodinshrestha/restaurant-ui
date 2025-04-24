@@ -20,7 +20,7 @@ export type HeaderProps = {
   logo?: string;
   shouldLogoFloat?: boolean;
   isLogoRounded?: boolean;
-  LinkComponent?: ReactElement;
+  LinkComponent?: any;
   boxShadowOnLogo?: boolean;
   headerHeight?: string;
   navColor?: string;

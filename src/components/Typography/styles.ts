@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { mediaQuery } from "@/theme/utils";
+import { maxMediaQuery } from "@/theme/utils";
 import { theme } from "@/theme";
 
 //Default boots strap font size
@@ -62,7 +62,7 @@ const style = ({ color }: StyleProps) => css`
     font-weight: 400;
     color: ${color || theme.color.primary};
 
-    ${mediaQuery("md")} {
+    ${maxMediaQuery("md")} {
       font-size: 16px;
       line-height: 24px;
     }
@@ -81,7 +81,7 @@ const style = ({ color }: StyleProps) => css`
     font-weight: 100;
     color: ${color || theme.color.primary};
 
-    ${mediaQuery("md")} {
+    ${maxMediaQuery("md")} {
       font-size: 18px;
       line-height: 34px;
     }
@@ -93,7 +93,7 @@ const style = ({ color }: StyleProps) => css`
     letter-spacing: 1px;
     color: ${color || theme.color.primary};
 
-    ${mediaQuery("md")} {
+    ${maxMediaQuery("md")} {
       font-size: 14px;
       line-height: 24px;
     }
@@ -117,7 +117,7 @@ const style = ({ color }: StyleProps) => css`
     padding-top: 100px;
     line-height: 60px;
 
-    ${mediaQuery("md")} {
+    ${maxMediaQuery("md")} {
       padding-top: 50px;
       font-size: 38px;
       line-height: 40px;
@@ -131,7 +131,7 @@ const style = ({ color }: StyleProps) => css`
   &.section-title-helper {
     margin-top: 40px;
 
-    ${mediaQuery("md")} {
+    ${maxMediaQuery("md")} {
       margin-top: 20px;
     }
   }
