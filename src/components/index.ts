@@ -9,6 +9,7 @@ import Typography from "./Typography";
 import MenuOverview from "./MenuOverview";
 import SimpleText from "./SimpleText";
 import Seo from "./Seo";
+// import VideoBanner from;
 
 // Injecting theme provider in the components
 const Button = withTheme(lazy(() => import("./Button")));
@@ -22,9 +23,12 @@ const ImageGallery = withTheme(lazy(() => import("./ImageGallery")));
 const ContactForm = withTheme(lazy(() => import("./ContactForm")));
 const Map = withTheme(lazy(() => import("./Map")));
 const InputField = withTheme(lazy(() => import("./InputField")));
+const Modal = withTheme(lazy(() => import("./Modal")));
 const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
+
 const Link = lazy(() => import("./Link"));
 const ImageWithFallBack = lazy(() => import("./ImageWithFallBack"));
+const VideoBanner = lazy(() => import("./VideoBanner"));
 
 export {
   Button,
@@ -48,6 +52,8 @@ export {
   MenuOverview,
   SimpleText,
   Seo,
+  Modal,
+  VideoBanner,
 };
 
 // Export types
@@ -74,3 +80,5 @@ export type { InputTextAreaProps } from "./InputTextArea";
 export type { MenuOverviewProps } from "./MenuOverview";
 export type { MenuListProps } from "./MenuOverview/MenuList";
 export type { SimpleTextProps } from "./SimpleText";
+export type { ModalProps } from "./Modal";
+export type { VideoBannerProps } from "./VideoBanner";

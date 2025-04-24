@@ -40,7 +40,7 @@ export const StyledDiv = styled.div`
       flex-direction: column;
       pointer-events: auto;
       margin: auto;
-      background-color: ${theme.color.white["100"]};
+      background-color: ${theme.color.primary};
       background-clip: padding-box;
       outline: 0;
       border: 0;

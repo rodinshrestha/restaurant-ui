@@ -45,6 +45,7 @@ const config = [
       }),
       nodeResolve({
         extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css"],
+        preferBuiltins: true,
       }),
       json(),
       image(),
