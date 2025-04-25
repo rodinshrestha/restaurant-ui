@@ -59,6 +59,7 @@ const config = [
         include: /node_modules/,
         transformMixedEsModules: true,
         requireReturnsDefault: "auto",
+        esmExternals: true,
       }),
       css({ output: "dist/styles.css" }),
       typescript({
@@ -68,7 +69,7 @@ const config = [
         declarationDir: "dist/types",
       }),
     ],
-    external: ["react", "react-dom", "styled-components"],
+    external: ["react", "react-dom", "styled-components", "framer-motion"],
   },
 ];
 module.exports = config;
