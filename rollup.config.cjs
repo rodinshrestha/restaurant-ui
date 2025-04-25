@@ -64,13 +64,7 @@ const config = [
         declarationDir: "dist/types",
       }),
     ],
-    external: [
-      "react",
-      "react-dom",
-      "styled-components",
-      "framer-motion",
-      "motion-dom",
-    ],
+    external: ["react", "react-dom", "styled-components"],
   },
 ];
 module.exports = config;
