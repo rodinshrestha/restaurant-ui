@@ -42,6 +42,10 @@ const config = [
             find: "@",
             replacement: path.resolve(__dirname, "src"),
           },
+          {
+            find: "motion-dom",
+            replacement: "framer-motion",
+          },
         ],
       }),
       nodeResolve({
