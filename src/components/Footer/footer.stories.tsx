@@ -72,6 +72,53 @@ const meta = {
         defaultValue: { summary: "" },
       },
     },
+    yelpIcon: {
+      control: "text",
+      description: "To override yelp icon",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "default yep icon" },
+      },
+    },
+    yelpLink: {
+      control: "text",
+      description: "yelp link",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "" },
+      },
+    },
+    bgColor: {
+      control: "text",
+      description: "Override footer background color",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "#fff" },
+      },
+    },
+    iconBgColor: {
+      description: "background color for the icon",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "" },
+      },
+    },
+    iconRadius: {
+      control: "boolean",
+      description: "50% radius will be applied",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    textColor: {
+      control: "text",
+      description: "Override footer text color",
+      table: {
+        type: { summary: "optional" },
+        defaultValue: { summary: "#000" },
+      },
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Footer>;
