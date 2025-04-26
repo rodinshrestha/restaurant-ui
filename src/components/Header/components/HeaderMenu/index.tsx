@@ -38,7 +38,11 @@ const HeaderMenu = ({
         const active = pathname === x.url;
         return (
           <li className={clsx("link-item", { active })} key={x.url}>
-            <Link to={x.url} LinkComponent={LinkComponent}>
+            <Link
+              to={x.url}
+              LinkComponent={LinkComponent}
+              testId="header-nav-link-id"
+            >
               {x.label}
             </Link>
           </li>

@@ -42,10 +42,6 @@ const config = [
             find: "@",
             replacement: path.resolve(__dirname, "src"),
           },
-          {
-            find: "motion-dom",
-            replacement: "framer-motion",
-          },
         ],
       }),
       nodeResolve({
@@ -69,7 +65,7 @@ const config = [
         declarationDir: "dist/types",
       }),
     ],
-    external: ["react", "react-dom", "styled-components", "framer-motion"],
+    external: ["react", "react-dom", "styled-components"],
   },
 ];
 module.exports = config;

@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 
 import clsx from "clsx";
 
@@ -111,7 +111,11 @@ const Header = ({
                           key={i}
                           data-testid="menu-list-id"
                         >
-                          <Link to={x.url} LinkComponent={LinkComponent}>
+                          <Link
+                            to={x.url}
+                            LinkComponent={LinkComponent}
+                            testId={`header-nav-link-${x.label}`}
+                          >
                             {x.label}
                           </Link>
                         </li>
@@ -133,8 +137,6 @@ const Header = ({
         className="search-drawer"
         open={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        size="fullscreen"
-        position="top"
         drawerZindex={9}
         overlayZindex={5}
         drawerTestId="header-drawer"

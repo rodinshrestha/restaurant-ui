@@ -19,7 +19,7 @@ const MenuOverview = ({
 
   return (
     <StyledDiv
-      data-testId="menu-details-test-id"
+      data-testid="menu-details-test-id"
       className="menu-overiew-wrapper"
     >
       <div className="menu-overview-title-wrapper">

@@ -5,14 +5,14 @@ import { mediaQuery } from "@/theme/utils";
 
 type Props = {
   theme: DefaultTheme;
-  bgImage?: string;
+  $bgImage?: string;
   $linkTextColor?: string;
 };
 
 export const StyledDiv = styled.div<Props>`
-  ${({ theme, bgImage = defaultBgImage, $linkTextColor }) => css`
+  ${({ theme, $bgImage = defaultBgImage, $linkTextColor }) => css`
     padding: 60px 0;
-    background-image: url(${bgImage});
+    background-image: url(${$bgImage});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

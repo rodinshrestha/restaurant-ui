@@ -50,7 +50,7 @@ const OpeningHours = ({
 }: OppeningHoursProps) => {
   return (
     <StyledDiv
-      bgImage={bgImage}
+      $bgImage={bgImage}
       $linkTextColor={linkTextColor}
       data-testid="opening-hours-wrapper-id"
     >
