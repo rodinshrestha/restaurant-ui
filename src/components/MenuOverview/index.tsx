@@ -15,6 +15,8 @@ const MenuOverview = ({
   menuTitle,
   menuDescription,
 }: MenuOverviewProps) => {
+  if (typeof window === "undefined") return <span />;
+
   if (!menuList.length) return null;
 
   return (

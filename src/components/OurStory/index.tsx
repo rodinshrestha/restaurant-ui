@@ -35,6 +35,8 @@ const OurStory = ({
     return description.replace(/\n+/g, "<br>");
   }, [description]);
 
+  if (typeof window === "undefined") return <span />;
+
   if (isContentNull) {
     return <span />;
   }

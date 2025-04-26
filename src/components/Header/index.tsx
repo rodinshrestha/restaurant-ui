@@ -52,13 +52,16 @@ const Header = ({
   const [isHeaderSticky, setIsHeaderSticky] = React.useState(false);
 
   React.useEffect(() => {
+    if (typeof window === "undefined") return;
     const detectScroll = () => {
       setIsHeaderSticky(window.scrollY >= 73);
     };
 
     window.addEventListener("scroll", detectScroll);
     return () => {
-      window.removeEventListener("scroll", detectScroll);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", detectScroll);
+      }
     };
   }, []);
 

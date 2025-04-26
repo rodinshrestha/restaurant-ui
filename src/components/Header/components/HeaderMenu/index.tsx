@@ -33,6 +33,7 @@ const HeaderMenu = ({
       $navactivecolor={navActiveColor}
     >
       {navLink.map((x) => {
+        if (typeof window === "undefined") return;
         const { pathname } = window.location;
 
         const active = pathname === x.url;
