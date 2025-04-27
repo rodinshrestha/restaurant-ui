@@ -1,7 +1,7 @@
 {
   "name": "restaurant-ui",
   "private": false,
-  "version": "1.4.1-STABLE",
+  "version": "1.4.2-SSR-STABLE",
   "main": "dist/components/index.js",
   "module": "dist/components/index.esm.js",
   "types": "dist/types/components/index.d.ts",
@@ -105,7 +105,6 @@
     "react-docgen-typescript": "^2.2.2",
     "rimraf": "^3.0.2",
     "rollup": "^3.0.0",
-    "rollup-plugin-css-only": "^4.5.2",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "storybook": "^8.6.11",
