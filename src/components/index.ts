@@ -2,15 +2,13 @@ import { lazy } from "react";
 
 import { withTheme } from "@/hooks/withTheme";
 
-import Row from "./Row";
-import Container from "./Container";
-import Col from "./Col";
-import Typography from "./Typography";
-import MenuOverview from "./MenuOverview";
-import SimpleText from "./SimpleText";
 import Seo from "./Seo";
 
 // Injecting theme provider in the components
+const Col = withTheme(lazy(() => import("./Col")));
+const SimpleText = withTheme(lazy(() => import("./SimpleText")));
+const Container = withTheme(lazy(() => import("./Container")));
+const Row = withTheme(lazy(() => import("./Row")));
 const Button = withTheme(lazy(() => import("./Button")));
 const Header = withTheme(lazy(() => import("./Header")));
 const OppeningHours = withTheme(lazy(() => import("./OpeningHours")));
@@ -26,9 +24,11 @@ const Modal = withTheme(lazy(() => import("./Modal")));
 const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
 const VideoBanner = withTheme(lazy(() => import("./VideoBanner")));
 const PageNotFound = withTheme(lazy(() => import("./PageNotFound")));
+const MenuOverview = withTheme(lazy(() => import("./MenuOverview")));
+const Typography = withTheme(lazy(() => import("./Typography")));
+const ImageWithFallBack = withTheme(lazy(() => import("./ImageWithFallBack")));
 
 const Link = lazy(() => import("./Link"));
-const ImageWithFallBack = lazy(() => import("./ImageWithFallBack"));
 
 export {
   Button,

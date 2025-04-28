@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
+import { DefaultTheme } from "styled-components/dist/types";
 
 import { maxMediaQuery } from "@/theme/utils";
-import { theme } from "@/theme";
 
 //Default boots strap font size
 // h1 Bootstrap heading (2.5rem = 40px)
@@ -13,9 +13,10 @@ import { theme } from "@/theme";
 
 type StyleProps = {
   color?: string;
+  theme: DefaultTheme;
 };
 
-const style = ({ color }: StyleProps) => css`
+const style = ({ color, theme }: StyleProps) => css`
   &.h1,
   &.h2,
   &.h3,
@@ -138,33 +139,33 @@ const style = ({ color }: StyleProps) => css`
 `;
 
 export const H1 = styled.h1`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const H2 = styled.h2`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const H3 = styled.h3`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const H4 = styled.h4`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const H5 = styled.h5`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const H6 = styled.h6`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const Paragraph = styled.p`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;
 
 export const Span = styled.span`
-  ${({ color }: StyleProps) => style({ color })}
+  ${({ color, theme }: StyleProps) => style({ color, theme })}
 `;

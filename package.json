@@ -1,7 +1,7 @@
 {
   "name": "restaurant-ui",
   "private": false,
-  "version": "1.4.2-SSR-STABLE",
+  "version": "1.5-STABLE",
   "main": "dist/components/index.js",
   "module": "dist/components/index.esm.js",
   "types": "dist/types/components/index.d.ts",
