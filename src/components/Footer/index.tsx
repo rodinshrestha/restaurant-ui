@@ -47,7 +47,7 @@ const Footer = ({
       data-testid="footer-wrapper"
       $iconBgColor={iconBgColor}
       $bgColor={bgColor}
-      className={className}
+      className={clsx("footer", className)}
     >
       {isSocialMediaLink && (
         <div className="footer-icon-list">
