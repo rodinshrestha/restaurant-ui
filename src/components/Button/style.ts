@@ -1,22 +1,22 @@
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
 
 import { mediaQuery } from "@/theme/utils";
+import { theme } from "@/theme";
 
 interface ButtonStyleProps {
   bgcolor?: string;
   color?: string;
-  theme: DefaultTheme;
 }
 
 const defaultStyle = css<ButtonStyleProps>`
   text-decoration: none;
   height: 3.5em;
   line-height: 3.5em;
-  color: ${({ color, theme }) => color || theme.color.white["100"]};
+  color: ${({ color }) => color || theme.color.white["100"]};
   display: inline-block;
   padding: 0 1.75em;
   outline: none;
-  font-family: ${({ theme }) => theme.font.defaultSystemTheme};
+  font-family: inherit;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   text-align: center;
@@ -24,10 +24,10 @@ const defaultStyle = css<ButtonStyleProps>`
   cursor: pointer;
 
   &.contained {
-    background-color: ${({ bgcolor, theme }) => bgcolor || theme.color.primary};
+    background-color: ${({ bgcolor }) => bgcolor || theme.color.primary};
     box-shadow: none;
-    color: ${({ color, theme }) => color || theme.color.white["100"]};
-    border: 1px solid ${({ bgcolor, theme }) => bgcolor || theme.color.primary};
+    color: ${({ color }) => color || theme.color.white["100"]};
+    border: 1px solid ${({ bgcolor }) => bgcolor || theme.color.primary};
     height: 100%;
 
     &:hover {
@@ -37,14 +37,14 @@ const defaultStyle = css<ButtonStyleProps>`
 
   &.outline {
     box-shadow: none;
-    color: ${({ color, theme }) => color || theme.color.primary};
-    border: 2px solid ${({ theme }) => theme.color.primary};
+    color: ${({ color }) => color || theme.color.primary};
+    border: 2px solid ${theme.color.primary};
     height: 100%;
 
     &:hover {
-      border: 2px solid ${({ theme }) => theme.color.primary};
-      background-color: ${({ theme }) => theme.color.primary};
-      color: ${({ theme }) => theme.color.white["100"]};
+      border: 2px solid ${theme.color.primary};
+      background-color: ${theme.color.primary};
+      color: ${theme.color.white["100"]};
     }
   }
 

@@ -1,9 +1,9 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 import { mediaQuery } from "./utils";
+import { theme } from ".";
 
 export const GlobalStyles = createGlobalStyle`
-${({ theme }) => css`
   * {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -71,7 +71,4 @@ ${({ theme }) => css`
       font-size: 24px;
     }
   }
-`}
-
- 
 `;

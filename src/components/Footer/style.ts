@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components";
 
+import { theme } from "@/theme";
+
 type StyleProps = {
   $iconBgColor?: string;
   $bgColor?: string;
 };
 
 export const StyledFooter = styled.footer<StyleProps>`
-  ${({ theme, $iconBgColor = "#f2f2f2", $bgColor = "#fff" }) => css`
+  ${({ $iconBgColor = "#f2f2f2", $bgColor = "#fff" }) => css`
     display: flex;
     flex-direction: column;
     justify-content: center;
