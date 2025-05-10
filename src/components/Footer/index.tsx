@@ -35,6 +35,10 @@ const Footer = ({
   textColor,
 }: FooterProps) => {
   const isSocialMediaLink = Boolean(facebookLink || instagramLink);
+  const updatedFooterText = footerText.replace(
+    /%date%/g,
+    new Date().getFullYear().toString(),
+  );
   return (
     <StyledFooter
       id="footer"
@@ -74,7 +78,7 @@ const Footer = ({
         </div>
       )}
       <Typography as="subtitle2" color={textColor}>
-        {footerText}
+        {updatedFooterText}
       </Typography>
     </StyledFooter>
   );

@@ -8,12 +8,13 @@ import Footer from "./index";
  * Footer component provides a consistent footer layout across the application. It displays text content with predefined styling and supports customization.
  *
  * ## Features
- * - Customizable footer text
+ * - Customizable footer text with dyanamic date(%date%)
  * - Consisten styling with theme
  * - Responsive layout
  * - Facebook and instagram icon feature supported with relative link
  *
  * ## Usage
+ * - You can use the `%date%` placeholder in the `footerText` prop to dynamically display the current year.
  * <Footer
  *  footerText = "footer text test"
  *  facebookLink = "www.facebook.com"
@@ -34,7 +35,7 @@ const meta = {
   argTypes: {
     footerText: {
       control: "text",
-      description: "Footer text",
+      description: "Footer text with support for %date% placeholder",
       table: {
         type: { summary: "optional" },
         defaultValue: { summary: "" },
@@ -133,7 +134,13 @@ export const FooterPlayground: Story = {
   },
   tags: ["!autodocs"],
 };
-
+// Dyanmic Date
+export const DynamicDate: Story = {
+  args: {
+    footerText: "© %date% Your Company Name. All rights reserved.",
+  },
+  tags: ["!dev"],
+};
 // Custom Text
 export const CustomText: Story = {
   args: {
