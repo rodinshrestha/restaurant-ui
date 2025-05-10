@@ -20,6 +20,7 @@ export type FooterProps = {
   yelpIcon?: string;
   bgColor?: string;
   textColor?: string;
+  className?: string;
 };
 const Footer = ({
   footerText = "Footer Text",
@@ -33,6 +34,7 @@ const Footer = ({
   iconRadius = false,
   bgColor,
   textColor,
+  className,
 }: FooterProps) => {
   const isSocialMediaLink = Boolean(facebookLink || instagramLink);
   const updatedFooterText = footerText.replace(
@@ -45,6 +47,7 @@ const Footer = ({
       data-testid="footer-wrapper"
       $iconBgColor={iconBgColor}
       $bgColor={bgColor}
+      className={className}
     >
       {isSocialMediaLink && (
         <div className="footer-icon-list">

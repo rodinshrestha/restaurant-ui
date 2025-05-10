@@ -12,6 +12,7 @@ import Footer from "./index";
  * - Consisten styling with theme
  * - Responsive layout
  * - Facebook and instagram icon feature supported with relative link
+ * - Custom classname to override css
  *
  * ## Usage
  * - You can use the `%date%` placeholder in the `footerText` prop to dynamically display the current year.
