@@ -1,9 +1,8 @@
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
 
 import { mediaQuery } from "@/theme/utils";
 
 type StyleProps = {
-  theme: DefaultTheme;
   $bgcolor?: string;
   $navcolor?: string;
   $navhovercolor?: string;
@@ -12,7 +11,6 @@ type StyleProps = {
 
 export const StyledUl = styled.ul<StyleProps>`
   ${({
-    theme,
     $bgcolor = "#fff",
     $navcolor = "#000",
     $navhovercolor = "grey",
@@ -35,7 +33,7 @@ export const StyledUl = styled.ul<StyleProps>`
       z-index: 999999;
 
       li {
-        font-family: ${theme.font.defaultSystemTheme};
+        font-family: inherit;
         &.link-item {
           font-size: 24px;
           position: relative;

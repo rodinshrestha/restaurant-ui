@@ -7,6 +7,7 @@ const image = require("@rollup/plugin-image");
 const replace = require("@rollup/plugin-replace");
 const path = require("path");
 const json = require("@rollup/plugin-json");
+const babel = require("@rollup/plugin-babel");
 
 const config = [
   {
@@ -61,6 +62,13 @@ const config = [
         exclude: ["**/__tests__", "**/*.test.tsx"],
         declaration: true,
         declarationDir: "dist/types",
+      }),
+      babel({
+        babelHelpers: "bundled",
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        exclude: "node_modules/**",
+        // Add this to ensure babel uses the config file
+        configFile: path.resolve(__dirname, "babel.config.js"),
       }),
     ],
     external: ["react", "react-dom", "styled-components"],

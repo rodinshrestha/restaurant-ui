@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { DefaultTheme } from "styled-components/dist/types";
 
 import { maxMediaQuery } from "@/theme/utils";
+import { theme } from "@/theme";
 
 //Default boots strap font size
 // h1 Bootstrap heading (2.5rem = 40px)
@@ -13,10 +13,9 @@ import { maxMediaQuery } from "@/theme/utils";
 
 type StyleProps = {
   color?: string;
-  theme: DefaultTheme;
 };
 
-const style = ({ color, theme }: StyleProps) => css`
+const style = ({ color }: StyleProps) => css`
   &.h1,
   &.h2,
   &.h3,
@@ -26,7 +25,7 @@ const style = ({ color, theme }: StyleProps) => css`
   &.p,
   &.subtitle2,
   &.subtitle1 {
-    font-family: ${theme.font.defaultSystemTheme};
+    font-family: inherit;
   }
 
   &.h1 {
@@ -139,33 +138,33 @@ const style = ({ color, theme }: StyleProps) => css`
 `;
 
 export const H1 = styled.h1`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const H2 = styled.h2`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const H3 = styled.h3`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const H4 = styled.h4`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const H5 = styled.h5`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const H6 = styled.h6`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const Paragraph = styled.p`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;
 
 export const Span = styled.span`
-  ${({ color, theme }: StyleProps) => style({ color, theme })}
+  ${({ color }: StyleProps) => style({ color })}
 `;

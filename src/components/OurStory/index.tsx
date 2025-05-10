@@ -1,7 +1,3 @@
-import React, { ReactNode } from "react";
-
-import parse from "html-react-parser";
-
 import { StyledSection } from "./style";
 import Container from "../Container";
 import Row from "../Row";
@@ -27,15 +23,7 @@ const OurStory = ({
   descriptionColor,
   subTitleColor,
 }: OurStoryProps) => {
-  const isContentNull = !description && !description && !subTitle;
-
-  const formattedStoryContent = React.useMemo(() => {
-    if (!description) return "";
-
-    return description.replace(/\n+/g, "<br>");
-  }, [description]);
-
-  if (typeof window === "undefined") return <span />;
+  const isContentNull = !description && !subTitle && !subTitle;
 
   if (isContentNull) {
     return <span />;
@@ -73,13 +61,13 @@ const OurStory = ({
                 )}
               </div>
 
-              {formattedStoryContent && (
+              {description && (
                 <Typography
                   as="p"
                   testId="our-story-description"
                   color={descriptionColor}
                 >
-                  {parse(formattedStoryContent) as ReactNode}
+                  {description}
                 </Typography>
               )}
             </div>

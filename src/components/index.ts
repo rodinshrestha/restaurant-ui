@@ -1,34 +1,27 @@
-import { lazy } from "react";
-
-import { withTheme } from "@/hooks/withTheme";
-
 import Seo from "./Seo";
-
-// Injecting theme provider in the components
-const Col = withTheme(lazy(() => import("./Col")));
-const SimpleText = withTheme(lazy(() => import("./SimpleText")));
-const Container = withTheme(lazy(() => import("./Container")));
-const Row = withTheme(lazy(() => import("./Row")));
-const Button = withTheme(lazy(() => import("./Button")));
-const Header = withTheme(lazy(() => import("./Header")));
-const OppeningHours = withTheme(lazy(() => import("./OpeningHours")));
-const SectionBgImage = withTheme(lazy(() => import("./SectionBgImage")));
-const Overlay = withTheme(lazy(() => import("./Overlay")));
-const Footer = withTheme(lazy(() => import("./Footer")));
-const OurStory = withTheme(lazy(() => import("./OurStory")));
-const ImageGallery = withTheme(lazy(() => import("./ImageGallery")));
-const ContactForm = withTheme(lazy(() => import("./ContactForm")));
-const Map = withTheme(lazy(() => import("./Map")));
-const InputField = withTheme(lazy(() => import("./InputField")));
-const Modal = withTheme(lazy(() => import("./Modal")));
-const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
-const VideoBanner = withTheme(lazy(() => import("./VideoBanner")));
-const PageNotFound = withTheme(lazy(() => import("./PageNotFound")));
-const MenuOverview = withTheme(lazy(() => import("./MenuOverview")));
-const Typography = withTheme(lazy(() => import("./Typography")));
-const ImageWithFallBack = withTheme(lazy(() => import("./ImageWithFallBack")));
-
-const Link = lazy(() => import("./Link"));
+import Button from "./Button";
+import Header from "./Header";
+import OppeningHours from "./OpeningHours";
+import SectionBgImage from "./SectionBgImage";
+import Overlay from "./Overlay";
+import Container from "./Container";
+import Row from "./Row";
+import Col from "./Col";
+import Typography from "./Typography";
+import Link from "./Link";
+import Footer from "./Footer";
+import OurStory from "./OurStory";
+import ImageGallery from "./ImageGallery";
+import ContactForm from "./ContactForm";
+import Map from "./Map";
+import InputField from "./InputField";
+import InputTextArea from "./InputTextArea";
+import ImageWithFallBack from "./ImageWithFallBack";
+import MenuOverview from "./MenuOverview";
+import SimpleText from "./SimpleText";
+import Modal from "./Modal";
+import VideoBanner from "./VideoBanner";
+import PageNotFound from "./PageNotFound";
 
 export {
   Button,
@@ -84,3 +77,29 @@ export type { SimpleTextProps } from "./SimpleText";
 export type { ModalProps } from "./Modal";
 export type { VideoBannerProps } from "./VideoBanner";
 export type { PageNotFoundProps } from "./PageNotFound";
+
+// Injecting theme provider in the components
+// const Col = withTheme(lazy(() => import("./Col")));
+// const SimpleText = withTheme(lazy(() => import("./SimpleText")));
+// const Container = withTheme(lazy(() => import("./Container")));
+// const Row = withTheme(lazy(() => import("./Row")));
+// const Button = withTheme(lazy(() => import("./Button")));
+// const Header = withTheme(lazy(() => import("./Header")));
+// const OppeningHours = withTheme(lazy(() => import("./OpeningHours")));
+// const SectionBgImage = withTheme(lazy(() => import("./SectionBgImage")));
+// const Overlay = withTheme(lazy(() => import("./Overlay")));
+// const Footer = withTheme(lazy(() => import("./Footer")));
+// const OurStory = withTheme(lazy(() => import("./OurStory")));
+// const ImageGallery = withTheme(lazy(() => import("./ImageGallery")));
+// const ContactForm = withTheme(lazy(() => import("./ContactForm")));
+// const Map = withTheme(lazy(() => import("./Map")));
+// const InputField = withTheme(lazy(() => import("./InputField")));
+// const Modal = withTheme(lazy(() => import("./Modal")));
+// const InputTextArea = withTheme(lazy(() => import("./InputTextArea")));
+// const VideoBanner = withTheme(lazy(() => import("./VideoBanner")));
+// const PageNotFound = withTheme(lazy(() => import("./PageNotFound")));
+// const MenuOverview = withTheme(lazy(() => import("./MenuOverview")));
+// const Typography = withTheme(lazy(() => import("./Typography")));
+// const ImageWithFallBack = withTheme(lazy(() => import("./ImageWithFallBack")));
+
+// const Link = lazy(() => import("./Link"));

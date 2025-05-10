@@ -1,15 +1,7 @@
-import { ComponentType, Suspense } from "react";
-
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { ComponentType } from "react";
 
 export const withTheme = <P extends object>(Component: ComponentType<P>) => {
-  const WrappedComponent = (props: P) => (
-    <ThemeProvider>
-      <Suspense fallback={null}>
-        <Component {...props} />
-      </Suspense>
-    </ThemeProvider>
-  );
+  const WrappedComponent = (props: P) => <Component {...props} />;
 
   return WrappedComponent;
 };

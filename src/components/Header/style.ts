@@ -1,9 +1,9 @@
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
 
 import { mediaQuery, maxMediaQuery } from "@/theme/utils";
+import { theme } from "@/theme";
 
 type StyleProps = {
-  theme: DefaultTheme;
   $headerheight?: string;
   $navcolor?: string;
   $navhovercolor?: string;
@@ -14,7 +14,6 @@ type StyleProps = {
 
 export const StyledDiv = styled.div<StyleProps>`
   ${({
-    theme,
     $headerheight = "90px",
     $navcolor = "#000",
     $navhovercolor = "grey",
@@ -57,7 +56,7 @@ export const StyledDiv = styled.div<StyleProps>`
         justify-content: center;
         position: relative;
         text-decoration: none;
-        font-family: ${theme.font.defaultSystemTheme};
+        font-family: inherit;
         overflow: hidden;
         margin-top: 10px;
         width: ${$logowidth};
