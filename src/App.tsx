@@ -39,6 +39,7 @@ const App: React.FC = () => {
         navLink={navLink}
         navActiveColor={theme.color.primary}
         navHoverColor={theme.color.primary}
+        framework="REACT"
       />
       <SectionBgImage
         title="SectionBgImage Component"

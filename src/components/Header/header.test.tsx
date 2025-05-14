@@ -3,7 +3,7 @@ import { expect, vi } from "vitest";
 
 import { render } from "@/utils/render";
 
-import Header from "./index";
+import Header, { HeaderProps } from "./index";
 
 // Mock the logo import
 vi.mock("@/assets/image/logo.png", () => ({
@@ -17,9 +17,10 @@ describe("Header Component", () => {
     { url: "/contact", label: "Contact" },
   ];
 
-  const defaultProps = {
+  const defaultProps: HeaderProps = {
     logo: "test-logo.png",
     navLink: mockNavLinks,
+    framework: "REACT",
   };
 
   describe("Rendering", () => {
@@ -44,13 +45,31 @@ describe("Header Component", () => {
       });
     });
 
+    it("render navigation link with next js or react js framework", () => {
+      render(<Header {...defaultProps} framework="NEXT" />);
+      mockNavLinks.forEach((link) => {
+        expect(
+          screen.getByTestId(`header-nav-link-${link.label}`),
+        ).toHaveAttribute("href", `${link.url}`);
+      });
+    });
+
+    it("render navigation link with gatsby framework", () => {
+      render(<Header {...defaultProps} framework="GATSBY" />);
+      mockNavLinks.forEach((link) => {
+        expect(
+          screen.getByTestId(`header-nav-link-${link.label}`),
+        ).toHaveAttribute("to", `${link.url}`);
+      });
+    });
+
     it("renders hamburger menu icon", () => {
       render(<Header {...defaultProps} />);
       expect(screen.getByTestId("hamburger-icon")).toBeInTheDocument();
     });
 
     it("renders with default logo when no logo prop is provided", () => {
-      render(<Header navLink={mockNavLinks} />);
+      render(<Header navLink={mockNavLinks} framework="REACT" />);
       expect(screen.getByRole("img")).toHaveAttribute(
         "src",
         "default-logo.png",
@@ -58,7 +77,7 @@ describe("Header Component", () => {
     });
 
     it("renders logo in rounded shape", () => {
-      render(<Header navLink={mockNavLinks} isLogoRounded />);
+      render(<Header navLink={mockNavLinks} isLogoRounded framework="REACT" />);
       const logoWrapper = screen.getByTestId("header-logo-wrapper");
       expect(logoWrapper).toHaveStyle({
         borderRadius: "50%",
@@ -66,7 +85,9 @@ describe("Header Component", () => {
     });
 
     it("should float the logo from the header height", () => {
-      render(<Header navLink={mockNavLinks} shouldLogoFloat />);
+      render(
+        <Header navLink={mockNavLinks} shouldLogoFloat framework="REACT" />,
+      );
       const menuWrapper = screen.getByTestId("header-logo-wrapper");
       expect(menuWrapper).toHaveStyle({
         width: "140px",
@@ -75,7 +96,13 @@ describe("Header Component", () => {
     });
 
     it("should render with custom header height", () => {
-      render(<Header navLink={mockNavLinks} headerHeight="180px" />);
+      render(
+        <Header
+          navLink={mockNavLinks}
+          headerHeight="180px"
+          framework="REACT"
+        />,
+      );
       const headerWrapper = screen.getByTestId("header-wrapper-id");
       expect(headerWrapper).toHaveStyle({
         height: "180px",
@@ -83,7 +110,9 @@ describe("Header Component", () => {
     });
 
     it("should render the header logo with box-shadow", () => {
-      render(<Header navLink={mockNavLinks} boxShadowOnLogo />);
+      render(
+        <Header navLink={mockNavLinks} boxShadowOnLogo framework="REACT" />,
+      );
       const logoWrapper = screen.getByTestId("header-logo-wrapper");
       expect(logoWrapper).toHaveClass("box-shadow");
       expect(logoWrapper).toHaveStyle({
@@ -93,7 +122,12 @@ describe("Header Component", () => {
 
     it("should render the custom height and width of logo", () => {
       render(
-        <Header navLink={mockNavLinks} logoHeight="150px" logoWidth="150px" />,
+        <Header
+          navLink={mockNavLinks}
+          logoHeight="150px"
+          logoWidth="150px"
+          framework="REACT"
+        />,
       );
       const logoWrapper = screen.getByTestId("header-logo-wrapper");
       expect(logoWrapper).toHaveStyle({

@@ -33,7 +33,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  bgcolor?: string;
+  $bgcolor?: string;
   color?: string;
   "data-testid"?: string;
 };
@@ -62,7 +62,7 @@ const Button = ({
     const linkProps: LinkProps = {
       href,
       className: buttonClasses,
-      bgcolor: bgColor,
+      $bgcolor: bgColor,
       color,
       "data-testid": testId,
       "aria-label": label,
@@ -76,7 +76,7 @@ const Button = ({
       className={buttonClasses}
       disabled={disabled}
       onClick={onClick}
-      bgcolor={bgColor}
+      $bgcolor={bgColor}
       color={color}
       data-testid={testId}
       aria-label={label}

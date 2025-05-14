@@ -5,6 +5,7 @@ import clsx from "clsx";
 import Link from "@/components/Link";
 import defaultLogo from "@/assets/image/logo.png";
 
+import { FrameworkType } from "../../types/framework.types";
 import HamburgerMenuIcon from "../HamburgerIcon";
 import { StyledDiv } from "./style";
 import ImageWithFallBack from "../ImageWithFallBack";
@@ -17,6 +18,7 @@ import HeaderMenu from "./components/HeaderMenu";
 
 export type HeaderProps = {
   navLink: NavLinkType;
+  framework: FrameworkType;
   logo?: string;
   shouldLogoFloat?: boolean;
   isLogoRounded?: boolean;
@@ -30,10 +32,12 @@ export type HeaderProps = {
   logoWidth?: string;
   logoHeight?: string;
   className?: string;
+  pathname?: string;
 };
 
 const Header = ({
   logo,
+  framework,
   navLink,
   LinkComponent,
   shouldLogoFloat = false,
@@ -47,9 +51,11 @@ const Header = ({
   logoWidth,
   logoHeight,
   className,
+  pathname = "",
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isHeaderSticky, setIsHeaderSticky] = React.useState(false);
+  const [currentPath, setCurrentPath] = React.useState("");
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -63,6 +69,11 @@ const Header = ({
         window.removeEventListener("scroll", detectScroll);
       }
     };
+  }, []);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    setCurrentPath(window.location.pathname);
   }, []);
 
   return (
@@ -93,6 +104,7 @@ const Header = ({
                     circle: !!isLogoRounded,
                     "box-shadow": !!boxShadowOnLogo,
                   })}
+                  framework={framework}
                   testId="header-logo-wrapper"
                 >
                   <ImageWithFallBack
@@ -104,10 +116,8 @@ const Header = ({
                 <nav className="menu-wrapper" data-testid="header-menu-wrapper">
                   <ul>
                     {navLink.map((x, i) => {
-                      if (typeof window === "undefined") return;
-                      const { pathname = "" } = window?.location || "";
-
-                      const active = pathname === x.url;
+                      const activePath = pathname || currentPath || "";
+                      const active = activePath === x.url;
                       return (
                         <li
                           className={clsx("menu-list", { active })}
@@ -118,6 +128,7 @@ const Header = ({
                             to={x.url}
                             LinkComponent={LinkComponent}
                             testId={`header-nav-link-${x.label}`}
+                            framework={framework}
                           >
                             {x.label}
                           </Link>
@@ -151,6 +162,8 @@ const Header = ({
           navColor={navColor}
           navHoverColor={navHoverColor}
           navActiveColor={navActiveColor}
+          currentPath={pathname || currentPath}
+          framework={framework}
         />
       </Drawer>
     </>

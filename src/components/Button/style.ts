@@ -4,7 +4,7 @@ import { mediaQuery } from "@/theme/utils";
 import { theme } from "@/theme";
 
 interface ButtonStyleProps {
-  bgcolor?: string;
+  $bgcolor?: string;
   color?: string;
 }
 
@@ -24,10 +24,10 @@ const defaultStyle = css<ButtonStyleProps>`
   cursor: pointer;
 
   &.contained {
-    background-color: ${({ bgcolor }) => bgcolor || theme.color.primary};
+    background-color: ${({ $bgcolor }) => $bgcolor || theme.color.primary};
     box-shadow: none;
     color: ${({ color }) => color || theme.color.white["100"]};
-    border: 1px solid ${({ bgcolor }) => bgcolor || theme.color.primary};
+    border: 1px solid ${({ $bgcolor }) => $bgcolor || theme.color.primary};
     height: 100%;
 
     &:hover {

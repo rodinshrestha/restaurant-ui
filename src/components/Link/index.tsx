@@ -1,29 +1,31 @@
-import React, { ElementType, ReactNode } from "react";
+import React, { ReactNode } from "react";
+
+import { FrameworkType } from "@/types/framework.types";
+import { getLinkAttributes } from "@/utils/get-link-attributes";
 
 export type LinkProps = {
   to: string;
+  framework: FrameworkType;
   LinkComponent?: any;
   children: ReactNode;
   testId?: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link = (props: LinkProps) => {
-  const { to, LinkComponent, children, testId, ...rest } = props;
-  const Component = (LinkComponent || "a") as ElementType;
-  const isAnchor = Component === "a";
+  const { to, LinkComponent, children, testId, framework, ...rest } = props;
 
   // If it's not an anchor and no LinkComponent is provided, fallback to anchor
-  const FinalComponent = isAnchor ? Component : LinkComponent || "a";
+  const FinalLinkComponent = LinkComponent || "a";
 
   const componentProps = {
-    [isAnchor ? "href" : "to"]: to,
+    [getLinkAttributes(framework)]: to,
     ...rest,
   };
 
   return (
-    <FinalComponent {...componentProps} data-testid={testId}>
+    <FinalLinkComponent {...componentProps} data-testid={testId}>
       {children}
-    </FinalComponent>
+    </FinalLinkComponent>
   );
 };
 

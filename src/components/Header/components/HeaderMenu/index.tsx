@@ -3,12 +3,15 @@ import { ReactElement } from "react";
 import clsx from "clsx";
 
 import Link from "@/components/Link";
+import { FrameworkType } from "@/types/framework.types";
 
 import { StyledUl } from "./style";
 import { NavLinkType } from "../../types/header.types";
 
 type Props = {
   navLink: NavLinkType;
+  framework: FrameworkType;
+  currentPath: string;
   LinkComponent?: ReactElement;
   headerBgColor?: string;
   navColor?: string;
@@ -23,6 +26,8 @@ const HeaderMenu = ({
   navColor,
   navHoverColor,
   navActiveColor,
+  currentPath,
+  framework,
 }: Props) => {
   return (
     <StyledUl
@@ -33,16 +38,15 @@ const HeaderMenu = ({
       $navactivecolor={navActiveColor}
     >
       {navLink.map((x) => {
-        if (typeof window === "undefined") return;
-        const { pathname } = window.location;
+        const active = currentPath === x.url;
 
-        const active = pathname === x.url;
         return (
           <li className={clsx("link-item", { active })} key={x.url}>
             <Link
               to={x.url}
               LinkComponent={LinkComponent}
               testId="header-nav-link-id"
+              framework={framework}
             >
               {x.label}
             </Link>

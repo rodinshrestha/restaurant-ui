@@ -8,8 +8,18 @@ import Header from "./index";
 /**
  * A responsive header component that provides navigation and branding for the application.
  *
+ * ⚠️ **Important:** You **must** set the `framework` prop for proper routing behavior!
+ *
+ * 🔧 Accepted values for `framework`:
+ * - `"REACT"`
+ * - `"NEXT"`
+ * - `"GATSBY"`
+ *
+ *  * ⚠️ **Important:** set the pathname from the SSR for better UI experience
+ *
  * ## Features
  * - Responsive design with mobile menu.
+ * - Supports framework link for example GATSBY, NEXT
  * - Customizable logo with floating and rounded options.
  * - Sticky behavior on scroll.
  * - React Router integration.
@@ -23,6 +33,7 @@ import Header from "./index";
  * ```tsx
  * <Header
  *   logo="/logo.png"
+ *   framwork = "GATSBY" | "REACT" | "NEXT"
  *   navLink={[
  *     { url: "/", label: "Home" },
  *     { url: "/about", label: "About" }
@@ -55,6 +66,14 @@ const meta = {
       table: {
         type: { summary: "required" },
         defaultValue: { summary: "required" },
+      },
+    },
+    framework: {
+      control: "text",
+      description: "React framework. For better routing",
+      table: {
+        type: { summary: "required" },
+        defaultValue: { summary: "href" },
       },
     },
     logo: {
@@ -195,6 +214,7 @@ const defaultNavLinks = [
 export const HeaderPlayground: Story = {
   args: {
     logo: "/logo.png",
+    framework: "GATSBY",
     navLink: defaultNavLinks,
   },
   render: (args) => (
@@ -211,6 +231,7 @@ export const HeaderPlayground: Story = {
 export const Default: Story = {
   args: {
     logo: "/logo.png",
+    framework: "GATSBY",
     navLink: defaultNavLinks,
   },
   tags: ["!dev"],
@@ -222,6 +243,7 @@ export const Default: Story = {
 export const CustomLogo: Story = {
   args: {
     logo: "https://picsum.photos/400/300",
+    framework: "GATSBY",
     navLink: defaultNavLinks,
   },
   tags: ["!dev"],
@@ -234,6 +256,7 @@ export const FloatingLogo: Story = {
   args: {
     logo: "/custom-logo.png",
     navLink: defaultNavLinks,
+    framework: "GATSBY",
     shouldLogoFloat: true,
   },
   tags: ["!dev"],
@@ -246,6 +269,7 @@ export const RoundedLogo: Story = {
   args: {
     logo: "/custom-logo.png",
     navLink: defaultNavLinks,
+    framework: "GATSBY",
     isLogoRounded: true,
   },
   tags: ["!dev"],
@@ -258,6 +282,7 @@ export const DifferentNavcolor: Story = {
   args: {
     logo: "/custom-logo.png",
     navLink: defaultNavLinks,
+    framework: "GATSBY",
     isLogoRounded: true,
     navActiveColor: "rgb(14, 168, 96)",
     navHoverColor: "rgb(14, 168, 96)",
